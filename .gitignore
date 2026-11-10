@@ -1,0 +1,19 @@
+# Local datasets and model checkpoints
+data/
+weights/
+saved_models/
+*.pth
+*.pth.tar
+*.pt
+*.zip
+*.tar
+*.tar.gz
+# Local environments and credentials
+.env
+.env.*
+!.env.example
+.venv/
+__pycache__/
+*.pyc
+# Generated figures and local logs
+logs/
