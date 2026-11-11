@@ -1,0 +1,715 @@
+{
+  "epoch_checkpoints": [
+    {
+      "epoch": 0,
+      "AP50": 0.09127821279894795,
+      "seen_AP50": 0.08643289390513849,
+      "novel_AP50": 0.09903072302904306,
+      "mean_train_loss": null
+    },
+    {
+      "epoch": 5,
+      "AP50": 0.14908037113203487,
+      "seen_AP50": 0.18241995656859805,
+      "novel_AP50": 0.09573703443353371,
+      "mean_train_loss": 5.561657352650419
+    },
+    {
+      "epoch": 10,
+      "AP50": 0.15402649487791845,
+      "seen_AP50": 0.18980797682125694,
+      "novel_AP50": 0.09677612376857686,
+      "mean_train_loss": 5.4632218391337295
+    },
+    {
+      "epoch": 15,
+      "AP50": 0.15721656252458005,
+      "seen_AP50": 0.1946975370961488,
+      "novel_AP50": 0.09724700321007003,
+      "mean_train_loss": 5.410835839332418
+    },
+    {
+      "epoch": 20,
+      "AP50": 0.15430101953489248,
+      "seen_AP50": 0.18997511444352566,
+      "novel_AP50": 0.09722246768107941,
+      "mean_train_loss": 5.345933975057399
+    },
+    {
+      "epoch": 25,
+      "AP50": 0.16387331617430848,
+      "seen_AP50": 0.20608210850000463,
+      "novel_AP50": 0.09633924845319454,
+      "mean_train_loss": 5.313101942657579
+    },
+    {
+      "epoch": 30,
+      "AP50": 0.16115296104370164,
+      "seen_AP50": 0.2015580815319519,
+      "novel_AP50": 0.0965047682625012,
+      "mean_train_loss": 5.273671842635946
+    }
+  ],
+  "scale_results": {
+    "full300": {
+      "AP50": 0.14908037113203487,
+      "AP": 0.0964360761529683,
+      "seen_AP50": 0.18241995656859805,
+      "novel_AP50": 0.09573703443353371,
+      "classes": {
+        "object--street-light": {
+          "AP50": 0.12230816424474741
+        },
+        "object--junction-box": {
+          "AP50": 0.12794315438090453
+        },
+        "object--trash-can": {
+          "AP50": 0.3388446402532978
+        },
+        "object--fire-hydrant": {
+          "AP50": 0.18104667609618103
+        },
+        "object--manhole": {
+          "AP50": 0.2831521855406864
+        },
+        "object--catch-basin": {
+          "AP50": 0.10678936826160242
+        },
+        "object--support--utility-pole": {
+          "AP50": 0.13546770892904933
+        },
+        "object--sign--store": {
+          "AP50": 0.1638077548423156
+        },
+        "object--cctv-camera": {
+          "AP50": 0.0037128712871287127
+        },
+        "object--bench": {
+          "AP50": 0.34145488017130904
+        },
+        "object--mailbox": {
+          "AP50": 0.003197455821531521
+        },
+        "object--bike-rack": {
+          "AP50": 0.08199974825065093
+        },
+        "object--sign--information": {
+          "AP50": 0.048320216637048316
+        }
+      },
+      "candidate_coverage": {
+        "any": 0.40639810426540285,
+        "same": 0.37203791469194314
+      },
+      "short_under8_coverage": {
+        "any": 0.1032258064516129,
+        "same": 0.09462365591397849
+      },
+      "macro_candidate_coverage": {
+        "any": 0.5239568631136102,
+        "same": 0.41377029025517087
+      }
+    },
+    "full1000": {
+      "AP50": 0.14933986079770517,
+      "AP": 0.096610423298139,
+      "seen_AP50": 0.18282434077661225,
+      "novel_AP50": 0.0957646928314539,
+      "classes": {
+        "object--street-light": {
+          "AP50": 0.12329431363052512
+        },
+        "object--junction-box": {
+          "AP50": 0.12912788823890572
+        },
+        "object--trash-can": {
+          "AP50": 0.3395303994315532
+        },
+        "object--fire-hydrant": {
+          "AP50": 0.18104667609618103
+        },
+        "object--manhole": {
+          "AP50": 0.28314754514211293
+        },
+        "object--catch-basin": {
+          "AP50": 0.10673584204033139
+        },
+        "object--support--utility-pole": {
+          "AP50": 0.13545806376486777
+        },
+        "object--sign--store": {
+          "AP50": 0.16425399786842065
+        },
+        "object--cctv-camera": {
+          "AP50": 0.0037128712871287127
+        },
+        "object--bench": {
+          "AP50": 0.34159317216091
+        },
+        "object--mailbox": {
+          "AP50": 0.003197455821531521
+        },
+        "object--bike-rack": {
+          "AP50": 0.08199974825065093
+        },
+        "object--sign--information": {
+          "AP50": 0.048320216637048316
+        }
+      },
+      "candidate_coverage": {
+        "any": 0.42890995260663506,
+        "same": 0.38981042654028436
+      },
+      "short_under8_coverage": {
+        "any": 0.11397849462365592,
+        "same": 0.1032258064516129
+      },
+      "macro_candidate_coverage": {
+        "any": 0.549682956989652,
+        "same": 0.4308438657598467
+      }
+    },
+    "tiled300": {
+      "AP50": 0.1892192911685241,
+      "AP": 0.12231875493095633,
+      "seen_AP50": 0.2486425529506427,
+      "novel_AP50": 0.09414207231713437,
+      "classes": {
+        "object--street-light": {
+          "AP50": 0.2692472889037569
+        },
+        "object--junction-box": {
+          "AP50": 0.2661255627216005
+        },
+        "object--trash-can": {
+          "AP50": 0.45073128553214076
+        },
+        "object--fire-hydrant": {
+          "AP50": 0.4031147795630627
+        },
+        "object--manhole": {
+          "AP50": 0.24727524950285718
+        },
+        "object--catch-basin": {
+          "AP50": 0.036339761427123106
+        },
+        "object--support--utility-pole": {
+          "AP50": 0.16611365282428756
+        },
+        "object--sign--store": {
+          "AP50": 0.15019284313031275
+        },
+        "object--cctv-camera": {
+          "AP50": 0.0059405940594059415
+        },
+        "object--bench": {
+          "AP50": 0.3654516110549995
+        },
+        "object--mailbox": {
+          "AP50": 0.001606887830870387
+        },
+        "object--bike-rack": {
+          "AP50": 0.05984994868386275
+        },
+        "object--sign--information": {
+          "AP50": 0.0378613199565333
+        }
+      },
+      "candidate_coverage": {
+        "any": 0.6445497630331753,
+        "same": 0.6078199052132701
+      },
+      "short_under8_coverage": {
+        "any": 0.4989247311827957,
+        "same": 0.4666666666666667
+      },
+      "macro_candidate_coverage": {
+        "any": 0.6574241092635441,
+        "same": 0.5526731521218728
+      }
+    },
+    "tiled1000": {
+      "AP50": 0.19103476995956634,
+      "AP": 0.12339834917532612,
+      "seen_AP50": 0.25071332999940865,
+      "novel_AP50": 0.09554907389581864,
+      "classes": {
+        "object--street-light": {
+          "AP50": 0.27110030862561213
+        },
+        "object--junction-box": {
+          "AP50": 0.26694966415671423
+        },
+        "object--trash-can": {
+          "AP50": 0.45073128553214076
+        },
+        "object--fire-hydrant": {
+          "AP50": 0.4120440535979236
+        },
+        "object--manhole": {
+          "AP50": 0.24791747588765783
+        },
+        "object--catch-basin": {
+          "AP50": 0.038138042612708443
+        },
+        "object--support--utility-pole": {
+          "AP50": 0.16637392702707007
+        },
+        "object--sign--store": {
+          "AP50": 0.15245188255544212
+        },
+        "object--cctv-camera": {
+          "AP50": 0.006544312967882155
+        },
+        "object--bench": {
+          "AP50": 0.3687153236210502
+        },
+        "object--mailbox": {
+          "AP50": 0.0030836635288861818
+        },
+        "object--bike-rack": {
+          "AP50": 0.06055221948994322
+        },
+        "object--sign--information": {
+          "AP50": 0.038849849871331436
+        }
+      },
+      "candidate_coverage": {
+        "any": 0.735781990521327,
+        "same": 0.6919431279620853
+      },
+      "short_under8_coverage": {
+        "any": 0.5870967741935483,
+        "same": 0.5440860215053763
+      },
+      "macro_candidate_coverage": {
+        "any": 0.8012209095009185,
+        "same": 0.6741890336808359
+      }
+    }
+  },
+  "scale_parameters": {
+    "source_run": "vistas_sweep_v2_highres",
+    "input": 960,
+    "tile_original_pixels": 1024,
+    "tile_stride": 768,
+    "overlap_nominal": 0.25,
+    "global_full_image_included": true,
+    "tile_nms_max_det": 1000,
+    "global_max_dets_compared": [
+      300,
+      1000
+    ],
+    "score": 0.001,
+    "nms_iou": 0.7,
+    "coco_maxDets": [
+      1,
+      10,
+      100
+    ],
+    "model": "YOLO-World-v2-S",
+    "prompt_checkpoint_epoch": 5,
+    "precision": "FP32",
+    "cuda_fraction": 0.6,
+    "script_sha256": "ac08e45a0abb77fb7b7de9a1e7d07a90d61395a445b2eb449d4b69af2931476d"
+  },
+  "timings": {
+    "full_median_seconds": 0.08967490000213729,
+    "full_plus_tiles_median_seconds": 0.38960129999759374,
+    "tiles_per_image_min": 1,
+    "tiles_per_image_max": 35
+  },
+  "crop_proxy": {
+    "method": "Frozen CLIP ViT-B/32, original-pixel GT box expanded 1.25x, CLIP standard center-crop preprocessing, 13 supplied texts, all 844 objects. Closed-set recognition proxy, not detector accuracy; center crop can remove ends of elongated objects.",
+    "classes": {
+      "object--street-light": {
+        "n": 402,
+        "top1": 0.40049751243781095,
+        "top3": 0.7288557213930348
+      },
+      "object--junction-box": {
+        "n": 14,
+        "top1": 0.21428571428571427,
+        "top3": 0.5
+      },
+      "object--trash-can": {
+        "n": 33,
+        "top1": 0.3333333333333333,
+        "top3": 0.6060606060606061
+      },
+      "object--fire-hydrant": {
+        "n": 12,
+        "top1": 0.5,
+        "top3": 0.75
+      },
+      "object--manhole": {
+        "n": 45,
+        "top1": 0.13333333333333333,
+        "top3": 0.24444444444444444
+      },
+      "object--catch-basin": {
+        "n": 17,
+        "top1": 0.35294117647058826,
+        "top3": 0.5294117647058824
+      },
+      "object--support--utility-pole": {
+        "n": 150,
+        "top1": 0.62,
+        "top3": 0.86
+      },
+      "object--sign--store": {
+        "n": 86,
+        "top1": 0.5,
+        "top3": 0.5581395348837209
+      },
+      "object--cctv-camera": {
+        "n": 20,
+        "top1": 0.35,
+        "top3": 0.8
+      },
+      "object--bench": {
+        "n": 22,
+        "top1": 0.5454545454545454,
+        "top3": 0.7272727272727273
+      },
+      "object--mailbox": {
+        "n": 11,
+        "top1": 0.18181818181818182,
+        "top3": 0.36363636363636365
+      },
+      "object--bike-rack": {
+        "n": 22,
+        "top1": 0.5,
+        "top3": 0.5909090909090909
+      },
+      "object--sign--information": {
+        "n": 10,
+        "top1": 0.2,
+        "top3": 0.5
+      }
+    },
+    "macro_top1": 0.37166644593334675,
+    "macro_top3": 0.5968254041004515,
+    "confusion": [
+      [
+        161,
+        5,
+        8,
+        7,
+        1,
+        0,
+        69,
+        0,
+        50,
+        8,
+        72,
+        21,
+        0
+      ],
+      [
+        5,
+        3,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        1,
+        1,
+        2,
+        0,
+        0
+      ],
+      [
+        3,
+        0,
+        11,
+        2,
+        0,
+        1,
+        5,
+        0,
+        3,
+        1,
+        3,
+        4,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        6,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        2,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        6,
+        5,
+        17,
+        0,
+        3,
+        3,
+        10,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        6,
+        6,
+        0,
+        4,
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        23,
+        1,
+        0,
+        2,
+        0,
+        0,
+        93,
+        3,
+        14,
+        0,
+        10,
+        3,
+        1
+      ],
+      [
+        6,
+        7,
+        3,
+        6,
+        2,
+        0,
+        9,
+        43,
+        3,
+        0,
+        6,
+        0,
+        1
+      ],
+      [
+        6,
+        0,
+        2,
+        1,
+        0,
+        1,
+        2,
+        0,
+        7,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        2,
+        0,
+        2,
+        0,
+        0,
+        0,
+        1,
+        0,
+        4,
+        12,
+        1,
+        0,
+        0
+      ],
+      [
+        4,
+        0,
+        0,
+        1,
+        0,
+        0,
+        3,
+        0,
+        0,
+        0,
+        2,
+        1,
+        0
+      ],
+      [
+        3,
+        0,
+        1,
+        0,
+        0,
+        0,
+        3,
+        0,
+        2,
+        0,
+        2,
+        11,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0,
+        2,
+        0,
+        0,
+        2,
+        0,
+        0,
+        2,
+        0,
+        2
+      ]
+    ]
+  },
+  "training_parameters": {
+    "manifest": {
+      "categories": [
+        "object--street-light",
+        "object--junction-box",
+        "object--trash-can",
+        "object--fire-hydrant",
+        "object--manhole",
+        "object--catch-basin",
+        "object--support--utility-pole",
+        "object--sign--store",
+        "object--cctv-camera",
+        "object--bench",
+        "object--mailbox",
+        "object--bike-rack",
+        "object--sign--information"
+      ],
+      "prompts": [
+        "street light fixture",
+        "electrical junction box",
+        "trash can",
+        "fire hydrant",
+        "manhole cover",
+        "storm drain",
+        "utility pole",
+        "store sign",
+        "surveillance camera",
+        "bench",
+        "mailbox",
+        "bicycle rack",
+        "information sign"
+      ],
+      "epochs": 30,
+      "lr": 0.0002,
+      "seed": 17,
+      "image_size": 960,
+      "batch": 1,
+      "precision": "FP32",
+      "train_selection": "32 images per seen class, SHA256 order, union; excludes annotated novel classes/crowds",
+      "dev_selection": "8 images per class, union; excludes previously inspected IDs and training IDs/image SHA256",
+      "bbox": "mask min inclusive max exclusive; positive pixel-area retained",
+      "sampler": "uniform",
+      "optimizer": "AdamW only seen embedding, weight_decay=0",
+      "ultralytics": "8.3.93",
+      "torch": "2.5.1+cu121",
+      "official_validation_used": false,
+      "train_count": 141,
+      "dev_count": 56,
+      "train_list_sha256": "b04c305d84a84e82c9deb948eab4fbdbcba4da37024b24f1415a44180481edd0",
+      "dev_list_sha256": "a0caa9158d7e187cc1728897a24fa8c1b0eee82121e20dae968463720a2bd5c7"
+    },
+    "optimizer_defaults": {
+      "lr": 0.0002,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "foreach": null,
+      "maximize": false,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null
+    },
+    "loss_gains": {
+      "box": 7.5,
+      "cls": 0.5,
+      "dfl": 1.5
+    },
+    "scheduler": null,
+    "warmup_steps": 0,
+    "gradient_accumulation_steps": 1,
+    "gradient_clip_norm": 10,
+    "augmentation": "none; OpenCV linear resize, centered pad114 to configured input size, BGR to RGB, divide255",
+    "num_workers": 0,
+    "cpu_threads": 4,
+    "cuda_memory_fraction": 0.6,
+    "trainable_parameters": 4096,
+    "frozen_detector_eval_mode": true,
+    "prompt_normalization": "L2 each forward",
+    "checkpoint_sha256": "9b2c17ab6124a913e9b3a5c170617920d91b0f01111a8479da69f00e2cf27792",
+    "script_sha256": "3d055de58763b939aa47628ca18095611b14bdda12201de02afc12d170e2fd2d",
+    "python": "3.11.5 | packaged by Anaconda, Inc. | (main, Sep 11 2023, 13:26:23) [MSC v.1916 64 bit (AMD64)]",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "cuda_runtime": "12.1",
+    "gpu": "NVIDIA GeForce RTX 3060 Laptop GPU",
+    "evaluation": {
+      "imgsz": 960,
+      "conf": 0.001,
+      "nms_iou": 0.7,
+      "inference_max_det": 300,
+      "coco_maxDets": [
+        1,
+        10,
+        100
+      ],
+      "iou_range": [
+        0.5,
+        0.95,
+        0.05
+      ]
+    },
+    "checkpoint_selection": "last epoch; periodic development metrics are diagnostic, no early stopping",
+    "eval_every": 5,
+    "visualization": "4 fixed hash-selected dev images plus one fixed crop per class; score>=0.1"
+  },
+  "training_audit": {
+    "detector_state_unchanged": true,
+    "frozen_state_sha256": "79b971d42e0b7184b4398a1a1547d1427d036a51280ccefaffce2d2bc2e26f42",
+    "novel_embeddings_bitwise_unchanged": true,
+    "trainable_parameters": 4096,
+    "seen_embedding_l2_change": 1.0773062705993652,
+    "peak_allocated_mib": 549.52294921875,
+    "peak_reserved_mib": 754.0
+  },
+  "checks": {
+    "first_5_epochs_loss_exactly_reproduced": true,
+    "first_5_epochs_AP50_exactly_reproduced": true,
+    "same_train_dev": true,
+    "same_full300_inference_reproduced": true
+  },
+  "raw_pre_nms_any_coverage": 0.43483412322274884
+}
