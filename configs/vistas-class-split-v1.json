@@ -1,0 +1,27 @@
+{
+  "status": "proposed_v1_no_training_started",
+  "seen": [
+    "object--street-light",
+    "object--junction-box",
+    "object--trash-can",
+    "object--fire-hydrant",
+    "object--manhole",
+    "object--catch-basin",
+    "object--support--utility-pole",
+    "object--sign--store"
+  ],
+  "unseen": [
+    "object--cctv-camera",
+    "object--bench",
+    "object--mailbox",
+    "object--bike-rack",
+    "object--sign--information"
+  ],
+  "auxiliary": [
+    "object--parking-meter",
+    "object--phone-booth",
+    "object--water-valve",
+    "object--sign--advertisement",
+    "object--support--pole"
+  ]
+}
