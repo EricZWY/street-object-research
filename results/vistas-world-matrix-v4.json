@@ -1,0 +1,2098 @@
+{
+  "plan": {
+    "created": "2026-11-11 21:46:09",
+    "models": [
+      "s",
+      "m",
+      "l"
+    ],
+    "prompt_sets": {
+      "original": [
+        "street light fixture",
+        "electrical junction box",
+        "trash can",
+        "fire hydrant",
+        "manhole cover",
+        "storm drain",
+        "utility pole",
+        "store sign",
+        "surveillance camera",
+        "bench",
+        "mailbox",
+        "bicycle rack",
+        "information sign"
+      ],
+      "short": [
+        "street light",
+        "electrical cabinet",
+        "garbage bin",
+        "fire hydrant",
+        "manhole cover",
+        "storm drain grate",
+        "utility pole",
+        "shop sign",
+        "security camera",
+        "bench",
+        "mailbox",
+        "bike rack",
+        "information sign"
+      ],
+      "descriptive": [
+        "street lamp lighting fixture",
+        "outdoor electrical junction box",
+        "public trash bin",
+        "street fire hydrant",
+        "round metal manhole cover in the road",
+        "storm drain grate at the curb",
+        "utility pole carrying overhead wires",
+        "storefront shop sign",
+        "mounted surveillance camera",
+        "outdoor public bench",
+        "street mailbox for posting letters",
+        "metal bicycle parking rack",
+        "public information signboard"
+      ]
+    },
+    "ensemble": "L2-normalized mean of the three normalized CLIP text embeddings per category; 13 queries, not 39 detections",
+    "cases": [
+      {
+        "case": "s_original",
+        "model": "s",
+        "prompt": "original"
+      },
+      {
+        "case": "s_short",
+        "model": "s",
+        "prompt": "short"
+      },
+      {
+        "case": "s_descriptive",
+        "model": "s",
+        "prompt": "descriptive"
+      },
+      {
+        "case": "s_ensemble",
+        "model": "s",
+        "prompt": "ensemble"
+      },
+      {
+        "case": "m_original",
+        "model": "m",
+        "prompt": "original"
+      },
+      {
+        "case": "m_short",
+        "model": "m",
+        "prompt": "short"
+      },
+      {
+        "case": "m_descriptive",
+        "model": "m",
+        "prompt": "descriptive"
+      },
+      {
+        "case": "m_ensemble",
+        "model": "m",
+        "prompt": "ensemble"
+      },
+      {
+        "case": "l_original",
+        "model": "l",
+        "prompt": "original"
+      },
+      {
+        "case": "l_short",
+        "model": "l",
+        "prompt": "short"
+      },
+      {
+        "case": "l_descriptive",
+        "model": "l",
+        "prompt": "descriptive"
+      },
+      {
+        "case": "l_ensemble",
+        "model": "l",
+        "prompt": "ensemble"
+      },
+      {
+        "case": "s_tuned5",
+        "model": "s",
+        "prompt": "tuned5"
+      },
+      {
+        "case": "s_tuned30",
+        "model": "s",
+        "prompt": "tuned30"
+      }
+    ],
+    "fixed": {
+      "image_size": 960,
+      "tile_original_pixels": 1024,
+      "stride": 768,
+      "include_full_image": true,
+      "per_view_max_det": 1000,
+      "final_max_det": 1000,
+      "confidence": 0.001,
+      "nms_iou": 0.7,
+      "batch_size": 1,
+      "precision": "FP32",
+      "cuda_memory_fraction": 0.6,
+      "cpu_threads": 4,
+      "coco_maxDets": [
+        1,
+        10,
+        100
+      ],
+      "dev_images": 56,
+      "epochs": 0,
+      "optimizer": null,
+      "seed": 17
+    },
+    "selection": "No prompt revision after scores; full 3x4 comparison. S tuned5/30 are supervised references, not pure model-size comparisons. Same 56 development images; no official validation. Primary metric AP50; report seen and novel separately.",
+    "sources": [
+      "https://docs.ultralytics.com/models/yolo-world/",
+      "https://github.com/ultralytics/assets/releases/tag/v8.3.0"
+    ]
+  },
+  "weights": [
+    {
+      "size": "s",
+      "filename": "yolov8s-worldv2.pt",
+      "bytes": 25923032,
+      "sha256": "9b2c17ab6124a913e9b3a5c170617920d91b0f01111a8479da69f00e2cf27792",
+      "source": "https://github.com/ultralytics/assets/releases/download/v8.3.0/yolov8s-worldv2.pt"
+    },
+    {
+      "size": "m",
+      "filename": "yolov8m-worldv2.pt",
+      "bytes": 57233192,
+      "sha256": "b614d33aa35b8e61d988041ff6939dfb3ed627af88ccaf643e4cdb822eb41d71",
+      "source": "https://github.com/ultralytics/assets/releases/download/v8.3.0/yolov8m-worldv2.pt"
+    },
+    {
+      "size": "l",
+      "filename": "yolov8l-worldv2.pt",
+      "bytes": 94224632,
+      "sha256": "276b618c2f04e6e08e32f085b3c0e8baf2dbffa46af5119b888423e859a6ee01",
+      "source": "https://github.com/ultralytics/assets/releases/download/v8.3.0/yolov8l-worldv2.pt"
+    }
+  ],
+  "results": {
+    "s_original": {
+      "AP50": 0.11767891643527495,
+      "AP": 0.08077306563432558,
+      "seen_AP50": 0.1257113767919548,
+      "novel_AP50": 0.10482697986458722,
+      "classes": {
+        "object--street-light": {
+          "AP50": 0.005905929206157664,
+          "AP": 0.0022591781491007514
+        },
+        "object--junction-box": {
+          "AP50": 0.0,
+          "AP": 0.0
+        },
+        "object--trash-can": {
+          "AP50": 0.4193470274703084,
+          "AP": 0.28906870730605394
+        },
+        "object--fire-hydrant": {
+          "AP50": 0.3785373490765226,
+          "AP": 0.24094878595002361
+        },
+        "object--manhole": {
+          "AP50": 0.11662526572309774,
+          "AP": 0.07643347610812606
+        },
+        "object--catch-basin": {
+          "AP50": 0.0,
+          "AP": 0.0
+        },
+        "object--support--utility-pole": {
+          "AP50": 0.0459577608302178,
+          "AP": 0.01817133829123583
+        },
+        "object--sign--store": {
+          "AP50": 0.03931768202933425,
+          "AP": 0.02291285366826898
+        },
+        "object--cctv-camera": {
+          "AP50": 0.02472062750188042,
+          "AP": 0.007585221252787117
+        },
+        "object--bench": {
+          "AP50": 0.4137666749413243,
+          "AP": 0.3542604450207882
+        },
+        "object--mailbox": {
+          "AP50": 0.0038785442089359435,
+          "AP": 0.002971581597866483
+        },
+        "object--bike-rack": {
+          "AP50": 0.04602337417674084,
+          "AP": 0.013056657029401614
+        },
+        "object--sign--information": {
+          "AP50": 0.03574567849405461,
+          "AP": 0.02238160887258016
+        }
+      },
+      "median_end_to_end_seconds": 0.3689706000004662,
+      "inference_total_seconds": 24.71959129998868,
+      "peak_allocated_mib": 181.572265625,
+      "peak_reserved_mib": 692.0,
+      "parameter_count": 12759880
+    },
+    "s_short": {
+      "AP50": 0.11283087015184964,
+      "AP": 0.07898030455791065,
+      "seen_AP50": 0.11993157440358632,
+      "novel_AP50": 0.10146974334907095,
+      "classes": {
+        "object--street-light": {
+          "AP50": 0.0011783736888056175,
+          "AP": 0.000396926799460508
+        },
+        "object--junction-box": {
+          "AP50": 0.0,
+          "AP": 0.0
+        },
+        "object--trash-can": {
+          "AP50": 0.41050665041700796,
+          "AP": 0.2777902229383548
+        },
+        "object--fire-hydrant": {
+          "AP50": 0.3785314888954959,
+          "AP": 0.2520693656358275
+        },
+        "object--manhole": {
+          "AP50": 0.10090863045802914,
+          "AP": 0.06303402619854025
+        },
+        "object--catch-basin": {
+          "AP50": 0.0049504950495049506,
+          "AP": 0.004455445544554455
+        },
+        "object--support--utility-pole": {
+          "AP50": 0.022004453274100402,
+          "AP": 0.009156635946755802
+        },
+        "object--sign--store": {
+          "AP50": 0.04137250344574661,
+          "AP": 0.021445517154650894
+        },
+        "object--cctv-camera": {
+          "AP50": 0.014972185385176043,
+          "AP": 0.004866097075818292
+        },
+        "object--bench": {
+          "AP50": 0.40754707673541296,
+          "AP": 0.355565364354771
+        },
+        "object--mailbox": {
+          "AP50": 0.0030116076425738924,
+          "AP": 0.0025159908546140324
+        },
+        "object--bike-rack": {
+          "AP50": 0.04492024258609593,
+          "AP": 0.01337054394643607
+        },
+        "object--sign--information": {
+          "AP50": 0.036897604396095934,
+          "AP": 0.022077822803054887
+        }
+      },
+      "median_end_to_end_seconds": 0.37830530000064755,
+      "inference_total_seconds": 25.159849799980293,
+      "peak_allocated_mib": 181.572265625,
+      "peak_reserved_mib": 692.0,
+      "parameter_count": 12759880
+    },
+    "s_descriptive": {
+      "AP50": 0.1120620831454126,
+      "AP": 0.07883575614316479,
+      "seen_AP50": 0.11937139944837868,
+      "novel_AP50": 0.10036717706066692,
+      "classes": {
+        "object--street-light": {
+          "AP50": 0.006433248806597868,
+          "AP": 0.0025187428492745387
+        },
+        "object--junction-box": {
+          "AP50": 0.0010627737527265156,
+          "AP": 0.0007344747311613869
+        },
+        "object--trash-can": {
+          "AP50": 0.4098172300925227,
+          "AP": 0.2995967395282233
+        },
+        "object--fire-hydrant": {
+          "AP50": 0.3635069639541054,
+          "AP": 0.24422472434421463
+        },
+        "object--manhole": {
+          "AP50": 0.08770237539679782,
+          "AP": 0.0666676829513164
+        },
+        "object--catch-basin": {
+          "AP50": 0.033611255862428344,
+          "AP": 0.025638353309015108
+        },
+        "object--support--utility-pole": {
+          "AP50": 0.05213191171214824,
+          "AP": 0.020532416880728578
+        },
+        "object--sign--store": {
+          "AP50": 0.0007054360097026651,
+          "AP": 0.00045007837648171594
+        },
+        "object--cctv-camera": {
+          "AP50": 0.013282411277400805,
+          "AP": 0.005900728527825961
+        },
+        "object--bench": {
+          "AP50": 0.40600387653282655,
+          "AP": 0.3242764057964922
+        },
+        "object--mailbox": {
+          "AP50": 0.0004500450045004501,
+          "AP": 0.000180154793594861
+        },
+        "object--bike-rack": {
+          "AP50": 0.05326819916535982,
+          "AP": 0.012878218247456713
+        },
+        "object--sign--information": {
+          "AP50": 0.028831353323246912,
+          "AP": 0.021266109525356704
+        }
+      },
+      "median_end_to_end_seconds": 0.376540199998999,
+      "inference_total_seconds": 25.254121800004214,
+      "peak_allocated_mib": 181.572265625,
+      "peak_reserved_mib": 692.0,
+      "parameter_count": 12759880
+    },
+    "s_ensemble": {
+      "AP50": 0.11616237340680792,
+      "AP": 0.08066280965945162,
+      "seen_AP50": 0.12478657176086899,
+      "novel_AP50": 0.1023636560403102,
+      "classes": {
+        "object--street-light": {
+          "AP50": 0.004060656914408527,
+          "AP": 0.0014921454978880392
+        },
+        "object--junction-box": {
+          "AP50": 0.0007135848720007136,
+          "AP": 0.0006422263848006423
+        },
+        "object--trash-can": {
+          "AP50": 0.42980831892321675,
+          "AP": 0.3069499797676975
+        },
+        "object--fire-hydrant": {
+          "AP50": 0.37998350721216045,
+          "AP": 0.24888559686847728
+        },
+        "object--manhole": {
+          "AP50": 0.10886185724069458,
+          "AP": 0.0713082265283044
+        },
+        "object--catch-basin": {
+          "AP50": 0.003629747303088518,
+          "AP": 0.0016624796808039014
+        },
+        "object--support--utility-pole": {
+          "AP50": 0.05490659260012969,
+          "AP": 0.02275007414627349
+        },
+        "object--sign--store": {
+          "AP50": 0.016328309021252763,
+          "AP": 0.008371908990368255
+        },
+        "object--cctv-camera": {
+          "AP50": 0.01885645356745681,
+          "AP": 0.006664717389286013
+        },
+        "object--bench": {
+          "AP50": 0.40385461846505444,
+          "AP": 0.34145160030225835
+        },
+        "object--mailbox": {
+          "AP50": 0.002979762892736494,
+          "AP": 0.002152671163539555
+        },
+        "object--bike-rack": {
+          "AP50": 0.05416255036639666,
+          "AP": 0.013800284323100064
+        },
+        "object--sign--information": {
+          "AP50": 0.03196489490990657,
+          "AP": 0.02248461453007373
+        }
+      },
+      "median_end_to_end_seconds": 0.37566440000227885,
+      "inference_total_seconds": 25.137050300028932,
+      "peak_allocated_mib": 181.5966796875,
+      "peak_reserved_mib": 1322.0,
+      "parameter_count": 12759880
+    },
+    "m_original": {
+      "AP50": 0.15065085727802527,
+      "AP": 0.10405060872070575,
+      "seen_AP50": 0.16015096384783067,
+      "novel_AP50": 0.13545068676633662,
+      "classes": {
+        "object--street-light": {
+          "AP50": 0.021745410356951447,
+          "AP": 0.00876427180019954
+        },
+        "object--junction-box": {
+          "AP50": 0.0,
+          "AP": 0.0
+        },
+        "object--trash-can": {
+          "AP50": 0.43395202642853004,
+          "AP": 0.31820519973521233
+        },
+        "object--fire-hydrant": {
+          "AP50": 0.5081137818043876,
+          "AP": 0.31458187526301523
+        },
+        "object--manhole": {
+          "AP50": 0.17097971545056367,
+          "AP": 0.10521514155928455
+        },
+        "object--catch-basin": {
+          "AP50": 0.0,
+          "AP": 0.0
+        },
+        "object--support--utility-pole": {
+          "AP50": 0.0857280440774118,
+          "AP": 0.0480208192588977
+        },
+        "object--sign--store": {
+          "AP50": 0.060688732664800855,
+          "AP": 0.039836915591645636
+        },
+        "object--cctv-camera": {
+          "AP50": 0.08371456281547571,
+          "AP": 0.02539567929079211
+        },
+        "object--bench": {
+          "AP50": 0.5122423190117669,
+          "AP": 0.44814235218304965
+        },
+        "object--mailbox": {
+          "AP50": 0.009753122186999483,
+          "AP": 0.006852206745073971
+        },
+        "object--bike-rack": {
+          "AP50": 0.04644059336626436,
+          "AP": 0.014852369101107748
+        },
+        "object--sign--information": {
+          "AP50": 0.02510283645117662,
+          "AP": 0.02279108284089648
+        }
+      },
+      "median_end_to_end_seconds": 0.6029846000019461,
+      "inference_total_seconds": 40.27356889998191,
+      "peak_allocated_mib": 300.1796875,
+      "peak_reserved_mib": 736.0,
+      "parameter_count": 28376158
+    },
+    "m_short": {
+      "AP50": 0.14876773258687506,
+      "AP": 0.10571779219450501,
+      "seen_AP50": 0.1632267430078876,
+      "novel_AP50": 0.12563331591325505,
+      "classes": {
+        "object--street-light": {
+          "AP50": 0.003062975140307915,
+          "AP": 0.0012648049329520746
+        },
+        "object--junction-box": {
+          "AP50": 0.0005539015440005539,
+          "AP": 0.00033234092640033235
+        },
+        "object--trash-can": {
+          "AP50": 0.4361824690406519,
+          "AP": 0.3269400651603987
+        },
+        "object--fire-hydrant": {
+          "AP50": 0.5187258985638825,
+          "AP": 0.3249467933806368
+        },
+        "object--manhole": {
+          "AP50": 0.17561109054175708,
+          "AP": 0.10826491618711832
+        },
+        "object--catch-basin": {
+          "AP50": 0.014653465346534653,
+          "AP": 0.010297029702970296
+        },
+        "object--support--utility-pole": {
+          "AP50": 0.10553202103393802,
+          "AP": 0.0623598972038735
+        },
+        "object--sign--store": {
+          "AP50": 0.051492122852028116,
+          "AP": 0.034005173639352564
+        },
+        "object--cctv-camera": {
+          "AP50": 0.03529381448154254,
+          "AP": 0.008761637109036283
+        },
+        "object--bench": {
+          "AP50": 0.5163792158915782,
+          "AP": 0.45341433504408424
+        },
+        "object--mailbox": {
+          "AP50": 0.007700444209246129,
+          "AP": 0.0057892739752953
+        },
+        "object--bike-rack": {
+          "AP50": 0.045301233250315924,
+          "AP": 0.01640950801385623
+        },
+        "object--sign--information": {
+          "AP50": 0.023491871733592462,
+          "AP": 0.021545523252590508
+        }
+      },
+      "median_end_to_end_seconds": 0.6087180999966222,
+      "inference_total_seconds": 40.74927580002259,
+      "peak_allocated_mib": 300.1796875,
+      "peak_reserved_mib": 736.0,
+      "parameter_count": 28376158
+    },
+    "m_descriptive": {
+      "AP50": 0.14847773870856487,
+      "AP": 0.10263315484693825,
+      "seen_AP50": 0.16705276118461623,
+      "novel_AP50": 0.11875770274688266,
+      "classes": {
+        "object--street-light": {
+          "AP50": 0.0199857922784615,
+          "AP": 0.006500320714576932
+        },
+        "object--junction-box": {
+          "AP50": 0.017971327788887076,
+          "AP": 0.013023100681618688
+        },
+        "object--trash-can": {
+          "AP50": 0.4438576980558061,
+          "AP": 0.33005275369040443
+        },
+        "object--fire-hydrant": {
+          "AP50": 0.5294856929301953,
+          "AP": 0.3358705306620888
+        },
+        "object--manhole": {
+          "AP50": 0.15238061871168276,
+          "AP": 0.10349606117767136
+        },
+        "object--catch-basin": {
+          "AP50": 0.06566808200065598,
+          "AP": 0.05044868864301323
+        },
+        "object--support--utility-pole": {
+          "AP50": 0.10150591146642206,
+          "AP": 0.05113176306050053
+        },
+        "object--sign--store": {
+          "AP50": 0.005566966244819074,
+          "AP": 0.004769966656148286
+        },
+        "object--cctv-camera": {
+          "AP50": 0.047629432541411665,
+          "AP": 0.015787179778954184
+        },
+        "object--bench": {
+          "AP50": 0.4602914378913569,
+          "AP": 0.37031304648999636
+        },
+        "object--mailbox": {
+          "AP50": 0.004664088428478191,
+          "AP": 0.002814020651582213
+        },
+        "object--bike-rack": {
+          "AP50": 0.054045885604769285,
+          "AP": 0.028261833110640237
+        },
+        "object--sign--information": {
+          "AP50": 0.02715766926839725,
+          "AP": 0.02176174769300195
+        }
+      },
+      "median_end_to_end_seconds": 0.6030278999969596,
+      "inference_total_seconds": 40.398985100015125,
+      "peak_allocated_mib": 300.1796875,
+      "peak_reserved_mib": 736.0,
+      "parameter_count": 28376158
+    },
+    "m_ensemble": {
+      "AP50": 0.15527242626056037,
+      "AP": 0.10727603568693794,
+      "seen_AP50": 0.17243484737774217,
+      "novel_AP50": 0.1278125524730695,
+      "classes": {
+        "object--street-light": {
+          "AP50": 0.014712071150587352,
+          "AP": 0.005592182369448624
+        },
+        "object--junction-box": {
+          "AP50": 0.0049504950495049506,
+          "AP": 0.0034653465346534654
+        },
+        "object--trash-can": {
+          "AP50": 0.4495412749271442,
+          "AP": 0.3398101579355664
+        },
+        "object--fire-hydrant": {
+          "AP50": 0.5322529056073679,
+          "AP": 0.33127789297701477
+        },
+        "object--manhole": {
+          "AP50": 0.2075542136702382,
+          "AP": 0.13760141161146378
+        },
+        "object--catch-basin": {
+          "AP50": 0.0029336266960029336,
+          "AP": 0.002133816985302134
+        },
+        "object--support--utility-pole": {
+          "AP50": 0.10738775739211082,
+          "AP": 0.05996392145721424
+        },
+        "object--sign--store": {
+          "AP50": 0.060146434528981114,
+          "AP": 0.04203987053979619
+        },
+        "object--cctv-camera": {
+          "AP50": 0.05204827762713777,
+          "AP": 0.01650361777888178
+        },
+        "object--bench": {
+          "AP50": 0.5010064747105745,
+          "AP": 0.41027134139497357
+        },
+        "object--mailbox": {
+          "AP50": 0.007604242239879545,
+          "AP": 0.004877079397431769
+        },
+        "object--bike-rack": {
+          "AP50": 0.05428264492237813,
+          "AP": 0.020558807303078963
+        },
+        "object--sign--information": {
+          "AP50": 0.024121122865377508,
+          "AP": 0.020493017645367678
+        }
+      },
+      "median_end_to_end_seconds": 0.6026979000016581,
+      "inference_total_seconds": 40.48909060002188,
+      "peak_allocated_mib": 302.2666015625,
+      "peak_reserved_mib": 1360.0,
+      "parameter_count": 28376158
+    },
+    "l_original": {
+      "AP50": 0.1612068725415085,
+      "AP": 0.11402244188321081,
+      "seen_AP50": 0.17488878212699116,
+      "novel_AP50": 0.13931581720473624,
+      "classes": {
+        "object--street-light": {
+          "AP50": 0.022685563508045167,
+          "AP": 0.00985149453734399
+        },
+        "object--junction-box": {
+          "AP50": 0.0,
+          "AP": 0.0
+        },
+        "object--trash-can": {
+          "AP50": 0.4626417788134481,
+          "AP": 0.33486365253515965
+        },
+        "object--fire-hydrant": {
+          "AP50": 0.605508639099204,
+          "AP": 0.41892569403999225
+        },
+        "object--manhole": {
+          "AP50": 0.17423002329116852,
+          "AP": 0.1251481038941544
+        },
+        "object--catch-basin": {
+          "AP50": 0.0,
+          "AP": 0.0
+        },
+        "object--support--utility-pole": {
+          "AP50": 0.07284777065501896,
+          "AP": 0.03249377691662259
+        },
+        "object--sign--store": {
+          "AP50": 0.061196481649044523,
+          "AP": 0.03748297386717634
+        },
+        "object--cctv-camera": {
+          "AP50": 0.1056927298779946,
+          "AP": 0.035284029628692724
+        },
+        "object--bench": {
+          "AP50": 0.5472128835108788,
+          "AP": 0.4633787502710792
+        },
+        "object--mailbox": {
+          "AP50": 0.002560286918212531,
+          "AP": 0.0015594856403502143
+        },
+        "object--bike-rack": {
+          "AP50": 0.02074219673188181,
+          "AP": 0.005200007031303001
+        },
+        "object--sign--information": {
+          "AP50": 0.02037098898471338,
+          "AP": 0.01810377611986616
+        }
+      },
+      "median_end_to_end_seconds": 0.8772874000060256,
+      "inference_total_seconds": 58.3300266999795,
+      "peak_allocated_mib": 447.1181640625,
+      "peak_reserved_mib": 822.0,
+      "parameter_count": 46832050
+    },
+    "l_short": {
+      "AP50": 0.15535801141509867,
+      "AP": 0.1115426156940333,
+      "seen_AP50": 0.16767944359770612,
+      "novel_AP50": 0.1356437199229268,
+      "classes": {
+        "object--street-light": {
+          "AP50": 0.004103152911444126,
+          "AP": 0.0018757033562701207
+        },
+        "object--junction-box": {
+          "AP50": 0.0003940692576720359,
+          "AP": 0.0003152554061376287
+        },
+        "object--trash-can": {
+          "AP50": 0.41018438430436804,
+          "AP": 0.30894878583385454
+        },
+        "object--fire-hydrant": {
+          "AP50": 0.6056339680877991,
+          "AP": 0.42143386192677346
+        },
+        "object--manhole": {
+          "AP50": 0.17666452183581585,
+          "AP": 0.12510293456956356
+        },
+        "object--catch-basin": {
+          "AP50": 0.0,
+          "AP": 0.0
+        },
+        "object--support--utility-pole": {
+          "AP50": 0.07537580656661062,
+          "AP": 0.02944335466743587
+        },
+        "object--sign--store": {
+          "AP50": 0.0690796458179392,
+          "AP": 0.041641230037859855
+        },
+        "object--cctv-camera": {
+          "AP50": 0.08778573722914564,
+          "AP": 0.03166371698864419
+        },
+        "object--bench": {
+          "AP50": 0.5477887770121129,
+          "AP": 0.4633965240339004
+        },
+        "object--mailbox": {
+          "AP50": 0.0030797126179016453,
+          "AP": 0.001885022924002853
+        },
+        "object--bike-rack": {
+          "AP50": 0.018623684593079053,
+          "AP": 0.005781788742464041
+        },
+        "object--sign--information": {
+          "AP50": 0.020940688162394718,
+          "AP": 0.018565825535526118
+        }
+      },
+      "median_end_to_end_seconds": 0.8625606999994488,
+      "inference_total_seconds": 57.59554549997847,
+      "peak_allocated_mib": 447.1181640625,
+      "peak_reserved_mib": 822.0,
+      "parameter_count": 46832050
+    },
+    "l_descriptive": {
+      "AP50": 0.1551651585330049,
+      "AP": 0.10864540075192942,
+      "seen_AP50": 0.17077696964661981,
+      "novel_AP50": 0.13018626075122092,
+      "classes": {
+        "object--street-light": {
+          "AP50": 0.012620364770927303,
+          "AP": 0.005560335366596535
+        },
+        "object--junction-box": {
+          "AP50": 0.000399672994822418,
+          "AP": 0.0003104132921771161
+        },
+        "object--trash-can": {
+          "AP50": 0.45038838232219525,
+          "AP": 0.3317173647761264
+        },
+        "object--fire-hydrant": {
+          "AP50": 0.6202593220571335,
+          "AP": 0.41649100421898755
+        },
+        "object--manhole": {
+          "AP50": 0.15289170725507956,
+          "AP": 0.10712436913812719
+        },
+        "object--catch-basin": {
+          "AP50": 0.007847990681421084,
+          "AP": 0.004289620138484437
+        },
+        "object--support--utility-pole": {
+          "AP50": 0.12069522441565236,
+          "AP": 0.048188581006930596
+        },
+        "object--sign--store": {
+          "AP50": 0.0011130926757272,
+          "AP": 0.00043990734477174426
+        },
+        "object--cctv-camera": {
+          "AP50": 0.09243681196839597,
+          "AP": 0.03509370700820855
+        },
+        "object--bench": {
+          "AP50": 0.5104716809302431,
+          "AP": 0.43202449580220803
+        },
+        "object--mailbox": {
+          "AP50": 0.0011786892975011785,
+          "AP": 0.0004714757190004715
+        },
+        "object--bike-rack": {
+          "AP50": 0.017980240121058564,
+          "AP": 0.006709762157773958
+        },
+        "object--sign--information": {
+          "AP50": 0.028863881438905867,
+          "AP": 0.023969173805690074
+        }
+      },
+      "median_end_to_end_seconds": 0.8619465000010678,
+      "inference_total_seconds": 57.42389679996995,
+      "peak_allocated_mib": 447.1181640625,
+      "peak_reserved_mib": 822.0,
+      "parameter_count": 46832050
+    },
+    "l_ensemble": {
+      "AP50": 0.16173125251956263,
+      "AP": 0.11468418079850647,
+      "seen_AP50": 0.17672246923871643,
+      "novel_AP50": 0.13774530576891642,
+      "classes": {
+        "object--street-light": {
+          "AP50": 0.013025625958542316,
+          "AP": 0.005735234011436795
+        },
+        "object--junction-box": {
+          "AP50": 0.0,
+          "AP": 0.0
+        },
+        "object--trash-can": {
+          "AP50": 0.4343600314814804,
+          "AP": 0.32128784781128217
+        },
+        "object--fire-hydrant": {
+          "AP50": 0.6068392673311093,
+          "AP": 0.42235135462963747
+        },
+        "object--manhole": {
+          "AP50": 0.1859798092076358,
+          "AP": 0.13490380511953853
+        },
+        "object--catch-basin": {
+          "AP50": 0.0,
+          "AP": 0.0
+        },
+        "object--support--utility-pole": {
+          "AP50": 0.10950165161918142,
+          "AP": 0.04329389091331756
+        },
+        "object--sign--store": {
+          "AP50": 0.06407336831178237,
+          "AP": 0.037669063195132704
+        },
+        "object--cctv-camera": {
+          "AP50": 0.0941285685296965,
+          "AP": 0.03433188912420142
+        },
+        "object--bench": {
+          "AP50": 0.5469854889263787,
+          "AP": 0.462348447375423
+        },
+        "object--mailbox": {
+          "AP50": 0.0017108328479906814,
+          "AP": 0.0009864589400116481
+        },
+        "object--bike-rack": {
+          "AP50": 0.02017416186242304,
+          "AP": 0.005535059435778322
+        },
+        "object--sign--information": {
+          "AP50": 0.025727476678093213,
+          "AP": 0.022451299824824432
+        }
+      },
+      "median_end_to_end_seconds": 0.9060268000030192,
+      "inference_total_seconds": 60.557417800031544,
+      "peak_allocated_mib": 454.931640625,
+      "peak_reserved_mib": 1458.0,
+      "parameter_count": 46832050
+    },
+    "s_tuned5": {
+      "AP50": 0.19103476995956634,
+      "AP": 0.12339834917532612,
+      "seen_AP50": 0.25071332999940865,
+      "novel_AP50": 0.09554907389581864,
+      "classes": {
+        "object--street-light": {
+          "AP50": 0.27110030862561213,
+          "AP": 0.13143235116388174
+        },
+        "object--junction-box": {
+          "AP50": 0.26694966415671423,
+          "AP": 0.20090863068299172
+        },
+        "object--trash-can": {
+          "AP50": 0.45073128553214076,
+          "AP": 0.29824975306573787
+        },
+        "object--fire-hydrant": {
+          "AP50": 0.4120440535979236,
+          "AP": 0.25356393652389103
+        },
+        "object--manhole": {
+          "AP50": 0.24791747588765783,
+          "AP": 0.1623433959605756
+        },
+        "object--catch-basin": {
+          "AP50": 0.038138042612708443,
+          "AP": 0.019389144174696518
+        },
+        "object--support--utility-pole": {
+          "AP50": 0.16637392702707007,
+          "AP": 0.0649165017808417
+        },
+        "object--sign--store": {
+          "AP50": 0.15245188255544212,
+          "AP": 0.09149929348900415
+        },
+        "object--cctv-camera": {
+          "AP50": 0.006544312967882155,
+          "AP": 0.00239797150446752
+        },
+        "object--bench": {
+          "AP50": 0.3687153236210502,
+          "AP": 0.32607027734503824
+        },
+        "object--mailbox": {
+          "AP50": 0.0030836635288861818,
+          "AP": 0.002211475646807647
+        },
+        "object--bike-rack": {
+          "AP50": 0.06055221948994322,
+          "AP": 0.018403651001454625
+        },
+        "object--sign--information": {
+          "AP50": 0.038849849871331436,
+          "AP": 0.03279215693985141
+        }
+      },
+      "median_end_to_end_seconds": 0.38263130000268575,
+      "inference_total_seconds": 25.479857200043625,
+      "peak_allocated_mib": 181.572265625,
+      "peak_reserved_mib": 692.0,
+      "parameter_count": 12759880
+    },
+    "s_tuned30": {
+      "AP50": 0.19992691382723707,
+      "AP": 0.12647303985646416,
+      "seen_AP50": 0.26088208133351887,
+      "novel_AP50": 0.10239864581718616,
+      "classes": {
+        "object--street-light": {
+          "AP50": 0.30440573034102475,
+          "AP": 0.14236478305169972
+        },
+        "object--junction-box": {
+          "AP50": 0.28451850613987556,
+          "AP": 0.19903594395687033
+        },
+        "object--trash-can": {
+          "AP50": 0.4252564479610197,
+          "AP": 0.2701051356959237
+        },
+        "object--fire-hydrant": {
+          "AP50": 0.39759751328785814,
+          "AP": 0.2461804495683123
+        },
+        "object--manhole": {
+          "AP50": 0.2095237308618776,
+          "AP": 0.14014148559100567
+        },
+        "object--catch-basin": {
+          "AP50": 0.0913650060941284,
+          "AP": 0.03819087404572574
+        },
+        "object--support--utility-pole": {
+          "AP50": 0.17615758487965988,
+          "AP": 0.07572195958355972
+        },
+        "object--sign--store": {
+          "AP50": 0.19823213110270685,
+          "AP": 0.1347825695268244
+        },
+        "object--cctv-camera": {
+          "AP50": 0.011881188118811883,
+          "AP": 0.0027256843331391967
+        },
+        "object--bench": {
+          "AP50": 0.39607999109082714,
+          "AP": 0.34973534730739236
+        },
+        "object--mailbox": {
+          "AP50": 0.003877234102179209,
+          "AP": 0.002944371652181715
+        },
+        "object--bike-rack": {
+          "AP50": 0.056117566780671,
+          "AP": 0.015639245761190135
+        },
+        "object--sign--information": {
+          "AP50": 0.044037248993441545,
+          "AP": 0.026581668060209115
+        }
+      },
+      "median_end_to_end_seconds": 0.37806060000002617,
+      "inference_total_seconds": 25.31850570001552,
+      "peak_allocated_mib": 181.572265625,
+      "peak_reserved_mib": 692.0,
+      "parameter_count": 12759880
+    }
+  },
+  "parameters": {
+    "s_original": {
+      "case": {
+        "case": "s_original",
+        "model": "s",
+        "prompt": "original"
+      },
+      "fixed": {
+        "image_size": 960,
+        "tile_original_pixels": 1024,
+        "stride": 768,
+        "include_full_image": true,
+        "per_view_max_det": 1000,
+        "final_max_det": 1000,
+        "confidence": 0.001,
+        "nms_iou": 0.7,
+        "batch_size": 1,
+        "precision": "FP32",
+        "cuda_memory_fraction": 0.6,
+        "cpu_threads": 4,
+        "coco_maxDets": [
+          1,
+          10,
+          100
+        ],
+        "dev_images": 56,
+        "epochs": 0,
+        "optimizer": null,
+        "seed": 17
+      },
+      "prompts": [
+        "street light fixture",
+        "electrical junction box",
+        "trash can",
+        "fire hydrant",
+        "manhole cover",
+        "storm drain",
+        "utility pole",
+        "store sign",
+        "surveillance camera",
+        "bench",
+        "mailbox",
+        "bicycle rack",
+        "information sign"
+      ],
+      "embedding_rule": "original",
+      "weight_sha256": "9b2c17ab6124a913e9b3a5c170617920d91b0f01111a8479da69f00e2cf27792",
+      "model_parameter_count": 12759880,
+      "torch": "2.5.1+cu121",
+      "ultralytics": "8.3.93",
+      "python": "3.11.5 | packaged by Anaconda, Inc. | (main, Sep 11 2023, 13:26:23) [MSC v.1916 64 bit (AMD64)]",
+      "platform": "Windows-10-10.0.19045-SP0",
+      "gpu": "NVIDIA GeForce RTX 3060 Laptop GPU",
+      "script_sha256": "f7d4f06d21a8ab7339d59f1ec69ba07d2dd6ee1c81b27e582bea4bb581462027",
+      "dev_list_sha256": "a0caa9158d7e187cc1728897a24fa8c1b0eee82121e20dae968463720a2bd5c7",
+      "ground_truth_sha256": "f46ee29679375b7646c3a63f647d5e3582f3392ad64737d0b32740f018086bd7",
+      "embedding_sha256": "54bd8a563abfa05b73e9109b20a8b96f6cdb4328e0a73d8081ba5085077241bc",
+      "pretraining_caveat": "Released checkpoints vary in learned weights; this is a same-family checkpoint scale comparison, not a controlled pretraining study."
+    },
+    "s_short": {
+      "case": {
+        "case": "s_short",
+        "model": "s",
+        "prompt": "short"
+      },
+      "fixed": {
+        "image_size": 960,
+        "tile_original_pixels": 1024,
+        "stride": 768,
+        "include_full_image": true,
+        "per_view_max_det": 1000,
+        "final_max_det": 1000,
+        "confidence": 0.001,
+        "nms_iou": 0.7,
+        "batch_size": 1,
+        "precision": "FP32",
+        "cuda_memory_fraction": 0.6,
+        "cpu_threads": 4,
+        "coco_maxDets": [
+          1,
+          10,
+          100
+        ],
+        "dev_images": 56,
+        "epochs": 0,
+        "optimizer": null,
+        "seed": 17
+      },
+      "prompts": [
+        "street light",
+        "electrical cabinet",
+        "garbage bin",
+        "fire hydrant",
+        "manhole cover",
+        "storm drain grate",
+        "utility pole",
+        "shop sign",
+        "security camera",
+        "bench",
+        "mailbox",
+        "bike rack",
+        "information sign"
+      ],
+      "embedding_rule": "short",
+      "weight_sha256": "9b2c17ab6124a913e9b3a5c170617920d91b0f01111a8479da69f00e2cf27792",
+      "model_parameter_count": 12759880,
+      "torch": "2.5.1+cu121",
+      "ultralytics": "8.3.93",
+      "python": "3.11.5 | packaged by Anaconda, Inc. | (main, Sep 11 2023, 13:26:23) [MSC v.1916 64 bit (AMD64)]",
+      "platform": "Windows-10-10.0.19045-SP0",
+      "gpu": "NVIDIA GeForce RTX 3060 Laptop GPU",
+      "script_sha256": "f7d4f06d21a8ab7339d59f1ec69ba07d2dd6ee1c81b27e582bea4bb581462027",
+      "dev_list_sha256": "a0caa9158d7e187cc1728897a24fa8c1b0eee82121e20dae968463720a2bd5c7",
+      "ground_truth_sha256": "f46ee29679375b7646c3a63f647d5e3582f3392ad64737d0b32740f018086bd7",
+      "embedding_sha256": "24f04285f2b702b6d09efcedb1a25a9f3fab1277e6b8a050ae4956208304dc2d",
+      "pretraining_caveat": "Released checkpoints vary in learned weights; this is a same-family checkpoint scale comparison, not a controlled pretraining study."
+    },
+    "s_descriptive": {
+      "case": {
+        "case": "s_descriptive",
+        "model": "s",
+        "prompt": "descriptive"
+      },
+      "fixed": {
+        "image_size": 960,
+        "tile_original_pixels": 1024,
+        "stride": 768,
+        "include_full_image": true,
+        "per_view_max_det": 1000,
+        "final_max_det": 1000,
+        "confidence": 0.001,
+        "nms_iou": 0.7,
+        "batch_size": 1,
+        "precision": "FP32",
+        "cuda_memory_fraction": 0.6,
+        "cpu_threads": 4,
+        "coco_maxDets": [
+          1,
+          10,
+          100
+        ],
+        "dev_images": 56,
+        "epochs": 0,
+        "optimizer": null,
+        "seed": 17
+      },
+      "prompts": [
+        "street lamp lighting fixture",
+        "outdoor electrical junction box",
+        "public trash bin",
+        "street fire hydrant",
+        "round metal manhole cover in the road",
+        "storm drain grate at the curb",
+        "utility pole carrying overhead wires",
+        "storefront shop sign",
+        "mounted surveillance camera",
+        "outdoor public bench",
+        "street mailbox for posting letters",
+        "metal bicycle parking rack",
+        "public information signboard"
+      ],
+      "embedding_rule": "descriptive",
+      "weight_sha256": "9b2c17ab6124a913e9b3a5c170617920d91b0f01111a8479da69f00e2cf27792",
+      "model_parameter_count": 12759880,
+      "torch": "2.5.1+cu121",
+      "ultralytics": "8.3.93",
+      "python": "3.11.5 | packaged by Anaconda, Inc. | (main, Sep 11 2023, 13:26:23) [MSC v.1916 64 bit (AMD64)]",
+      "platform": "Windows-10-10.0.19045-SP0",
+      "gpu": "NVIDIA GeForce RTX 3060 Laptop GPU",
+      "script_sha256": "f7d4f06d21a8ab7339d59f1ec69ba07d2dd6ee1c81b27e582bea4bb581462027",
+      "dev_list_sha256": "a0caa9158d7e187cc1728897a24fa8c1b0eee82121e20dae968463720a2bd5c7",
+      "ground_truth_sha256": "f46ee29679375b7646c3a63f647d5e3582f3392ad64737d0b32740f018086bd7",
+      "embedding_sha256": "d16407792c74d74f418047da96e2d9f5657654279c430d4bdbc5f010daab77c3",
+      "pretraining_caveat": "Released checkpoints vary in learned weights; this is a same-family checkpoint scale comparison, not a controlled pretraining study."
+    },
+    "s_ensemble": {
+      "case": {
+        "case": "s_ensemble",
+        "model": "s",
+        "prompt": "ensemble"
+      },
+      "fixed": {
+        "image_size": 960,
+        "tile_original_pixels": 1024,
+        "stride": 768,
+        "include_full_image": true,
+        "per_view_max_det": 1000,
+        "final_max_det": 1000,
+        "confidence": 0.001,
+        "nms_iou": 0.7,
+        "batch_size": 1,
+        "precision": "FP32",
+        "cuda_memory_fraction": 0.6,
+        "cpu_threads": 4,
+        "coco_maxDets": [
+          1,
+          10,
+          100
+        ],
+        "dev_images": 56,
+        "epochs": 0,
+        "optimizer": null,
+        "seed": 17
+      },
+      "prompts": [
+        "street light fixture",
+        "electrical junction box",
+        "trash can",
+        "fire hydrant",
+        "manhole cover",
+        "storm drain",
+        "utility pole",
+        "store sign",
+        "surveillance camera",
+        "bench",
+        "mailbox",
+        "bicycle rack",
+        "information sign",
+        "street light",
+        "electrical cabinet",
+        "garbage bin",
+        "fire hydrant",
+        "manhole cover",
+        "storm drain grate",
+        "utility pole",
+        "shop sign",
+        "security camera",
+        "bench",
+        "mailbox",
+        "bike rack",
+        "information sign",
+        "street lamp lighting fixture",
+        "outdoor electrical junction box",
+        "public trash bin",
+        "street fire hydrant",
+        "round metal manhole cover in the road",
+        "storm drain grate at the curb",
+        "utility pole carrying overhead wires",
+        "storefront shop sign",
+        "mounted surveillance camera",
+        "outdoor public bench",
+        "street mailbox for posting letters",
+        "metal bicycle parking rack",
+        "public information signboard"
+      ],
+      "embedding_rule": "L2-normalized mean of the three normalized CLIP text embeddings per category; 13 queries, not 39 detections",
+      "weight_sha256": "9b2c17ab6124a913e9b3a5c170617920d91b0f01111a8479da69f00e2cf27792",
+      "model_parameter_count": 12759880,
+      "torch": "2.5.1+cu121",
+      "ultralytics": "8.3.93",
+      "python": "3.11.5 | packaged by Anaconda, Inc. | (main, Sep 11 2023, 13:26:23) [MSC v.1916 64 bit (AMD64)]",
+      "platform": "Windows-10-10.0.19045-SP0",
+      "gpu": "NVIDIA GeForce RTX 3060 Laptop GPU",
+      "script_sha256": "f7d4f06d21a8ab7339d59f1ec69ba07d2dd6ee1c81b27e582bea4bb581462027",
+      "dev_list_sha256": "a0caa9158d7e187cc1728897a24fa8c1b0eee82121e20dae968463720a2bd5c7",
+      "ground_truth_sha256": "f46ee29679375b7646c3a63f647d5e3582f3392ad64737d0b32740f018086bd7",
+      "embedding_sha256": "1632ef7f80558886a5cd249ab60995982c404f58cf269086fe3dc3816f4c2366",
+      "pretraining_caveat": "Released checkpoints vary in learned weights; this is a same-family checkpoint scale comparison, not a controlled pretraining study."
+    },
+    "m_original": {
+      "case": {
+        "case": "m_original",
+        "model": "m",
+        "prompt": "original"
+      },
+      "fixed": {
+        "image_size": 960,
+        "tile_original_pixels": 1024,
+        "stride": 768,
+        "include_full_image": true,
+        "per_view_max_det": 1000,
+        "final_max_det": 1000,
+        "confidence": 0.001,
+        "nms_iou": 0.7,
+        "batch_size": 1,
+        "precision": "FP32",
+        "cuda_memory_fraction": 0.6,
+        "cpu_threads": 4,
+        "coco_maxDets": [
+          1,
+          10,
+          100
+        ],
+        "dev_images": 56,
+        "epochs": 0,
+        "optimizer": null,
+        "seed": 17
+      },
+      "prompts": [
+        "street light fixture",
+        "electrical junction box",
+        "trash can",
+        "fire hydrant",
+        "manhole cover",
+        "storm drain",
+        "utility pole",
+        "store sign",
+        "surveillance camera",
+        "bench",
+        "mailbox",
+        "bicycle rack",
+        "information sign"
+      ],
+      "embedding_rule": "original",
+      "weight_sha256": "b614d33aa35b8e61d988041ff6939dfb3ed627af88ccaf643e4cdb822eb41d71",
+      "model_parameter_count": 28376158,
+      "torch": "2.5.1+cu121",
+      "ultralytics": "8.3.93",
+      "python": "3.11.5 | packaged by Anaconda, Inc. | (main, Sep 11 2023, 13:26:23) [MSC v.1916 64 bit (AMD64)]",
+      "platform": "Windows-10-10.0.19045-SP0",
+      "gpu": "NVIDIA GeForce RTX 3060 Laptop GPU",
+      "script_sha256": "f7d4f06d21a8ab7339d59f1ec69ba07d2dd6ee1c81b27e582bea4bb581462027",
+      "dev_list_sha256": "a0caa9158d7e187cc1728897a24fa8c1b0eee82121e20dae968463720a2bd5c7",
+      "ground_truth_sha256": "f46ee29679375b7646c3a63f647d5e3582f3392ad64737d0b32740f018086bd7",
+      "embedding_sha256": "54bd8a563abfa05b73e9109b20a8b96f6cdb4328e0a73d8081ba5085077241bc",
+      "pretraining_caveat": "Released checkpoints vary in learned weights; this is a same-family checkpoint scale comparison, not a controlled pretraining study."
+    },
+    "m_short": {
+      "case": {
+        "case": "m_short",
+        "model": "m",
+        "prompt": "short"
+      },
+      "fixed": {
+        "image_size": 960,
+        "tile_original_pixels": 1024,
+        "stride": 768,
+        "include_full_image": true,
+        "per_view_max_det": 1000,
+        "final_max_det": 1000,
+        "confidence": 0.001,
+        "nms_iou": 0.7,
+        "batch_size": 1,
+        "precision": "FP32",
+        "cuda_memory_fraction": 0.6,
+        "cpu_threads": 4,
+        "coco_maxDets": [
+          1,
+          10,
+          100
+        ],
+        "dev_images": 56,
+        "epochs": 0,
+        "optimizer": null,
+        "seed": 17
+      },
+      "prompts": [
+        "street light",
+        "electrical cabinet",
+        "garbage bin",
+        "fire hydrant",
+        "manhole cover",
+        "storm drain grate",
+        "utility pole",
+        "shop sign",
+        "security camera",
+        "bench",
+        "mailbox",
+        "bike rack",
+        "information sign"
+      ],
+      "embedding_rule": "short",
+      "weight_sha256": "b614d33aa35b8e61d988041ff6939dfb3ed627af88ccaf643e4cdb822eb41d71",
+      "model_parameter_count": 28376158,
+      "torch": "2.5.1+cu121",
+      "ultralytics": "8.3.93",
+      "python": "3.11.5 | packaged by Anaconda, Inc. | (main, Sep 11 2023, 13:26:23) [MSC v.1916 64 bit (AMD64)]",
+      "platform": "Windows-10-10.0.19045-SP0",
+      "gpu": "NVIDIA GeForce RTX 3060 Laptop GPU",
+      "script_sha256": "f7d4f06d21a8ab7339d59f1ec69ba07d2dd6ee1c81b27e582bea4bb581462027",
+      "dev_list_sha256": "a0caa9158d7e187cc1728897a24fa8c1b0eee82121e20dae968463720a2bd5c7",
+      "ground_truth_sha256": "f46ee29679375b7646c3a63f647d5e3582f3392ad64737d0b32740f018086bd7",
+      "embedding_sha256": "24f04285f2b702b6d09efcedb1a25a9f3fab1277e6b8a050ae4956208304dc2d",
+      "pretraining_caveat": "Released checkpoints vary in learned weights; this is a same-family checkpoint scale comparison, not a controlled pretraining study."
+    },
+    "m_descriptive": {
+      "case": {
+        "case": "m_descriptive",
+        "model": "m",
+        "prompt": "descriptive"
+      },
+      "fixed": {
+        "image_size": 960,
+        "tile_original_pixels": 1024,
+        "stride": 768,
+        "include_full_image": true,
+        "per_view_max_det": 1000,
+        "final_max_det": 1000,
+        "confidence": 0.001,
+        "nms_iou": 0.7,
+        "batch_size": 1,
+        "precision": "FP32",
+        "cuda_memory_fraction": 0.6,
+        "cpu_threads": 4,
+        "coco_maxDets": [
+          1,
+          10,
+          100
+        ],
+        "dev_images": 56,
+        "epochs": 0,
+        "optimizer": null,
+        "seed": 17
+      },
+      "prompts": [
+        "street lamp lighting fixture",
+        "outdoor electrical junction box",
+        "public trash bin",
+        "street fire hydrant",
+        "round metal manhole cover in the road",
+        "storm drain grate at the curb",
+        "utility pole carrying overhead wires",
+        "storefront shop sign",
+        "mounted surveillance camera",
+        "outdoor public bench",
+        "street mailbox for posting letters",
+        "metal bicycle parking rack",
+        "public information signboard"
+      ],
+      "embedding_rule": "descriptive",
+      "weight_sha256": "b614d33aa35b8e61d988041ff6939dfb3ed627af88ccaf643e4cdb822eb41d71",
+      "model_parameter_count": 28376158,
+      "torch": "2.5.1+cu121",
+      "ultralytics": "8.3.93",
+      "python": "3.11.5 | packaged by Anaconda, Inc. | (main, Sep 11 2023, 13:26:23) [MSC v.1916 64 bit (AMD64)]",
+      "platform": "Windows-10-10.0.19045-SP0",
+      "gpu": "NVIDIA GeForce RTX 3060 Laptop GPU",
+      "script_sha256": "f7d4f06d21a8ab7339d59f1ec69ba07d2dd6ee1c81b27e582bea4bb581462027",
+      "dev_list_sha256": "a0caa9158d7e187cc1728897a24fa8c1b0eee82121e20dae968463720a2bd5c7",
+      "ground_truth_sha256": "f46ee29679375b7646c3a63f647d5e3582f3392ad64737d0b32740f018086bd7",
+      "embedding_sha256": "d16407792c74d74f418047da96e2d9f5657654279c430d4bdbc5f010daab77c3",
+      "pretraining_caveat": "Released checkpoints vary in learned weights; this is a same-family checkpoint scale comparison, not a controlled pretraining study."
+    },
+    "m_ensemble": {
+      "case": {
+        "case": "m_ensemble",
+        "model": "m",
+        "prompt": "ensemble"
+      },
+      "fixed": {
+        "image_size": 960,
+        "tile_original_pixels": 1024,
+        "stride": 768,
+        "include_full_image": true,
+        "per_view_max_det": 1000,
+        "final_max_det": 1000,
+        "confidence": 0.001,
+        "nms_iou": 0.7,
+        "batch_size": 1,
+        "precision": "FP32",
+        "cuda_memory_fraction": 0.6,
+        "cpu_threads": 4,
+        "coco_maxDets": [
+          1,
+          10,
+          100
+        ],
+        "dev_images": 56,
+        "epochs": 0,
+        "optimizer": null,
+        "seed": 17
+      },
+      "prompts": [
+        "street light fixture",
+        "electrical junction box",
+        "trash can",
+        "fire hydrant",
+        "manhole cover",
+        "storm drain",
+        "utility pole",
+        "store sign",
+        "surveillance camera",
+        "bench",
+        "mailbox",
+        "bicycle rack",
+        "information sign",
+        "street light",
+        "electrical cabinet",
+        "garbage bin",
+        "fire hydrant",
+        "manhole cover",
+        "storm drain grate",
+        "utility pole",
+        "shop sign",
+        "security camera",
+        "bench",
+        "mailbox",
+        "bike rack",
+        "information sign",
+        "street lamp lighting fixture",
+        "outdoor electrical junction box",
+        "public trash bin",
+        "street fire hydrant",
+        "round metal manhole cover in the road",
+        "storm drain grate at the curb",
+        "utility pole carrying overhead wires",
+        "storefront shop sign",
+        "mounted surveillance camera",
+        "outdoor public bench",
+        "street mailbox for posting letters",
+        "metal bicycle parking rack",
+        "public information signboard"
+      ],
+      "embedding_rule": "L2-normalized mean of the three normalized CLIP text embeddings per category; 13 queries, not 39 detections",
+      "weight_sha256": "b614d33aa35b8e61d988041ff6939dfb3ed627af88ccaf643e4cdb822eb41d71",
+      "model_parameter_count": 28376158,
+      "torch": "2.5.1+cu121",
+      "ultralytics": "8.3.93",
+      "python": "3.11.5 | packaged by Anaconda, Inc. | (main, Sep 11 2023, 13:26:23) [MSC v.1916 64 bit (AMD64)]",
+      "platform": "Windows-10-10.0.19045-SP0",
+      "gpu": "NVIDIA GeForce RTX 3060 Laptop GPU",
+      "script_sha256": "f7d4f06d21a8ab7339d59f1ec69ba07d2dd6ee1c81b27e582bea4bb581462027",
+      "dev_list_sha256": "a0caa9158d7e187cc1728897a24fa8c1b0eee82121e20dae968463720a2bd5c7",
+      "ground_truth_sha256": "f46ee29679375b7646c3a63f647d5e3582f3392ad64737d0b32740f018086bd7",
+      "embedding_sha256": "1632ef7f80558886a5cd249ab60995982c404f58cf269086fe3dc3816f4c2366",
+      "pretraining_caveat": "Released checkpoints vary in learned weights; this is a same-family checkpoint scale comparison, not a controlled pretraining study."
+    },
+    "l_original": {
+      "case": {
+        "case": "l_original",
+        "model": "l",
+        "prompt": "original"
+      },
+      "fixed": {
+        "image_size": 960,
+        "tile_original_pixels": 1024,
+        "stride": 768,
+        "include_full_image": true,
+        "per_view_max_det": 1000,
+        "final_max_det": 1000,
+        "confidence": 0.001,
+        "nms_iou": 0.7,
+        "batch_size": 1,
+        "precision": "FP32",
+        "cuda_memory_fraction": 0.6,
+        "cpu_threads": 4,
+        "coco_maxDets": [
+          1,
+          10,
+          100
+        ],
+        "dev_images": 56,
+        "epochs": 0,
+        "optimizer": null,
+        "seed": 17
+      },
+      "prompts": [
+        "street light fixture",
+        "electrical junction box",
+        "trash can",
+        "fire hydrant",
+        "manhole cover",
+        "storm drain",
+        "utility pole",
+        "store sign",
+        "surveillance camera",
+        "bench",
+        "mailbox",
+        "bicycle rack",
+        "information sign"
+      ],
+      "embedding_rule": "original",
+      "weight_sha256": "276b618c2f04e6e08e32f085b3c0e8baf2dbffa46af5119b888423e859a6ee01",
+      "model_parameter_count": 46832050,
+      "torch": "2.5.1+cu121",
+      "ultralytics": "8.3.93",
+      "python": "3.11.5 | packaged by Anaconda, Inc. | (main, Sep 11 2023, 13:26:23) [MSC v.1916 64 bit (AMD64)]",
+      "platform": "Windows-10-10.0.19045-SP0",
+      "gpu": "NVIDIA GeForce RTX 3060 Laptop GPU",
+      "script_sha256": "f7d4f06d21a8ab7339d59f1ec69ba07d2dd6ee1c81b27e582bea4bb581462027",
+      "dev_list_sha256": "a0caa9158d7e187cc1728897a24fa8c1b0eee82121e20dae968463720a2bd5c7",
+      "ground_truth_sha256": "f46ee29679375b7646c3a63f647d5e3582f3392ad64737d0b32740f018086bd7",
+      "embedding_sha256": "54bd8a563abfa05b73e9109b20a8b96f6cdb4328e0a73d8081ba5085077241bc",
+      "pretraining_caveat": "Released checkpoints vary in learned weights; this is a same-family checkpoint scale comparison, not a controlled pretraining study."
+    },
+    "l_short": {
+      "case": {
+        "case": "l_short",
+        "model": "l",
+        "prompt": "short"
+      },
+      "fixed": {
+        "image_size": 960,
+        "tile_original_pixels": 1024,
+        "stride": 768,
+        "include_full_image": true,
+        "per_view_max_det": 1000,
+        "final_max_det": 1000,
+        "confidence": 0.001,
+        "nms_iou": 0.7,
+        "batch_size": 1,
+        "precision": "FP32",
+        "cuda_memory_fraction": 0.6,
+        "cpu_threads": 4,
+        "coco_maxDets": [
+          1,
+          10,
+          100
+        ],
+        "dev_images": 56,
+        "epochs": 0,
+        "optimizer": null,
+        "seed": 17
+      },
+      "prompts": [
+        "street light",
+        "electrical cabinet",
+        "garbage bin",
+        "fire hydrant",
+        "manhole cover",
+        "storm drain grate",
+        "utility pole",
+        "shop sign",
+        "security camera",
+        "bench",
+        "mailbox",
+        "bike rack",
+        "information sign"
+      ],
+      "embedding_rule": "short",
+      "weight_sha256": "276b618c2f04e6e08e32f085b3c0e8baf2dbffa46af5119b888423e859a6ee01",
+      "model_parameter_count": 46832050,
+      "torch": "2.5.1+cu121",
+      "ultralytics": "8.3.93",
+      "python": "3.11.5 | packaged by Anaconda, Inc. | (main, Sep 11 2023, 13:26:23) [MSC v.1916 64 bit (AMD64)]",
+      "platform": "Windows-10-10.0.19045-SP0",
+      "gpu": "NVIDIA GeForce RTX 3060 Laptop GPU",
+      "script_sha256": "f7d4f06d21a8ab7339d59f1ec69ba07d2dd6ee1c81b27e582bea4bb581462027",
+      "dev_list_sha256": "a0caa9158d7e187cc1728897a24fa8c1b0eee82121e20dae968463720a2bd5c7",
+      "ground_truth_sha256": "f46ee29679375b7646c3a63f647d5e3582f3392ad64737d0b32740f018086bd7",
+      "embedding_sha256": "24f04285f2b702b6d09efcedb1a25a9f3fab1277e6b8a050ae4956208304dc2d",
+      "pretraining_caveat": "Released checkpoints vary in learned weights; this is a same-family checkpoint scale comparison, not a controlled pretraining study."
+    },
+    "l_descriptive": {
+      "case": {
+        "case": "l_descriptive",
+        "model": "l",
+        "prompt": "descriptive"
+      },
+      "fixed": {
+        "image_size": 960,
+        "tile_original_pixels": 1024,
+        "stride": 768,
+        "include_full_image": true,
+        "per_view_max_det": 1000,
+        "final_max_det": 1000,
+        "confidence": 0.001,
+        "nms_iou": 0.7,
+        "batch_size": 1,
+        "precision": "FP32",
+        "cuda_memory_fraction": 0.6,
+        "cpu_threads": 4,
+        "coco_maxDets": [
+          1,
+          10,
+          100
+        ],
+        "dev_images": 56,
+        "epochs": 0,
+        "optimizer": null,
+        "seed": 17
+      },
+      "prompts": [
+        "street lamp lighting fixture",
+        "outdoor electrical junction box",
+        "public trash bin",
+        "street fire hydrant",
+        "round metal manhole cover in the road",
+        "storm drain grate at the curb",
+        "utility pole carrying overhead wires",
+        "storefront shop sign",
+        "mounted surveillance camera",
+        "outdoor public bench",
+        "street mailbox for posting letters",
+        "metal bicycle parking rack",
+        "public information signboard"
+      ],
+      "embedding_rule": "descriptive",
+      "weight_sha256": "276b618c2f04e6e08e32f085b3c0e8baf2dbffa46af5119b888423e859a6ee01",
+      "model_parameter_count": 46832050,
+      "torch": "2.5.1+cu121",
+      "ultralytics": "8.3.93",
+      "python": "3.11.5 | packaged by Anaconda, Inc. | (main, Sep 11 2023, 13:26:23) [MSC v.1916 64 bit (AMD64)]",
+      "platform": "Windows-10-10.0.19045-SP0",
+      "gpu": "NVIDIA GeForce RTX 3060 Laptop GPU",
+      "script_sha256": "f7d4f06d21a8ab7339d59f1ec69ba07d2dd6ee1c81b27e582bea4bb581462027",
+      "dev_list_sha256": "a0caa9158d7e187cc1728897a24fa8c1b0eee82121e20dae968463720a2bd5c7",
+      "ground_truth_sha256": "f46ee29679375b7646c3a63f647d5e3582f3392ad64737d0b32740f018086bd7",
+      "embedding_sha256": "d16407792c74d74f418047da96e2d9f5657654279c430d4bdbc5f010daab77c3",
+      "pretraining_caveat": "Released checkpoints vary in learned weights; this is a same-family checkpoint scale comparison, not a controlled pretraining study."
+    },
+    "l_ensemble": {
+      "case": {
+        "case": "l_ensemble",
+        "model": "l",
+        "prompt": "ensemble"
+      },
+      "fixed": {
+        "image_size": 960,
+        "tile_original_pixels": 1024,
+        "stride": 768,
+        "include_full_image": true,
+        "per_view_max_det": 1000,
+        "final_max_det": 1000,
+        "confidence": 0.001,
+        "nms_iou": 0.7,
+        "batch_size": 1,
+        "precision": "FP32",
+        "cuda_memory_fraction": 0.6,
+        "cpu_threads": 4,
+        "coco_maxDets": [
+          1,
+          10,
+          100
+        ],
+        "dev_images": 56,
+        "epochs": 0,
+        "optimizer": null,
+        "seed": 17
+      },
+      "prompts": [
+        "street light fixture",
+        "electrical junction box",
+        "trash can",
+        "fire hydrant",
+        "manhole cover",
+        "storm drain",
+        "utility pole",
+        "store sign",
+        "surveillance camera",
+        "bench",
+        "mailbox",
+        "bicycle rack",
+        "information sign",
+        "street light",
+        "electrical cabinet",
+        "garbage bin",
+        "fire hydrant",
+        "manhole cover",
+        "storm drain grate",
+        "utility pole",
+        "shop sign",
+        "security camera",
+        "bench",
+        "mailbox",
+        "bike rack",
+        "information sign",
+        "street lamp lighting fixture",
+        "outdoor electrical junction box",
+        "public trash bin",
+        "street fire hydrant",
+        "round metal manhole cover in the road",
+        "storm drain grate at the curb",
+        "utility pole carrying overhead wires",
+        "storefront shop sign",
+        "mounted surveillance camera",
+        "outdoor public bench",
+        "street mailbox for posting letters",
+        "metal bicycle parking rack",
+        "public information signboard"
+      ],
+      "embedding_rule": "L2-normalized mean of the three normalized CLIP text embeddings per category; 13 queries, not 39 detections",
+      "weight_sha256": "276b618c2f04e6e08e32f085b3c0e8baf2dbffa46af5119b888423e859a6ee01",
+      "model_parameter_count": 46832050,
+      "torch": "2.5.1+cu121",
+      "ultralytics": "8.3.93",
+      "python": "3.11.5 | packaged by Anaconda, Inc. | (main, Sep 11 2023, 13:26:23) [MSC v.1916 64 bit (AMD64)]",
+      "platform": "Windows-10-10.0.19045-SP0",
+      "gpu": "NVIDIA GeForce RTX 3060 Laptop GPU",
+      "script_sha256": "f7d4f06d21a8ab7339d59f1ec69ba07d2dd6ee1c81b27e582bea4bb581462027",
+      "dev_list_sha256": "a0caa9158d7e187cc1728897a24fa8c1b0eee82121e20dae968463720a2bd5c7",
+      "ground_truth_sha256": "f46ee29679375b7646c3a63f647d5e3582f3392ad64737d0b32740f018086bd7",
+      "embedding_sha256": "1632ef7f80558886a5cd249ab60995982c404f58cf269086fe3dc3816f4c2366",
+      "pretraining_caveat": "Released checkpoints vary in learned weights; this is a same-family checkpoint scale comparison, not a controlled pretraining study."
+    },
+    "s_tuned5": {
+      "case": {
+        "case": "s_tuned5",
+        "model": "s",
+        "prompt": "tuned5"
+      },
+      "fixed": {
+        "image_size": 960,
+        "tile_original_pixels": 1024,
+        "stride": 768,
+        "include_full_image": true,
+        "per_view_max_det": 1000,
+        "final_max_det": 1000,
+        "confidence": 0.001,
+        "nms_iou": 0.7,
+        "batch_size": 1,
+        "precision": "FP32",
+        "cuda_memory_fraction": 0.6,
+        "cpu_threads": 4,
+        "coco_maxDets": [
+          1,
+          10,
+          100
+        ],
+        "dev_images": 56,
+        "epochs": 0,
+        "optimizer": null,
+        "seed": 17
+      },
+      "prompts": [
+        "street light fixture",
+        "electrical junction box",
+        "trash can",
+        "fire hydrant",
+        "manhole cover",
+        "storm drain",
+        "utility pole",
+        "store sign",
+        "surveillance camera",
+        "bench",
+        "mailbox",
+        "bicycle rack",
+        "information sign"
+      ],
+      "embedding_rule": "tuned5",
+      "weight_sha256": "9b2c17ab6124a913e9b3a5c170617920d91b0f01111a8479da69f00e2cf27792",
+      "model_parameter_count": 12759880,
+      "torch": "2.5.1+cu121",
+      "ultralytics": "8.3.93",
+      "python": "3.11.5 | packaged by Anaconda, Inc. | (main, Sep 11 2023, 13:26:23) [MSC v.1916 64 bit (AMD64)]",
+      "platform": "Windows-10-10.0.19045-SP0",
+      "gpu": "NVIDIA GeForce RTX 3060 Laptop GPU",
+      "script_sha256": "f7d4f06d21a8ab7339d59f1ec69ba07d2dd6ee1c81b27e582bea4bb581462027",
+      "dev_list_sha256": "a0caa9158d7e187cc1728897a24fa8c1b0eee82121e20dae968463720a2bd5c7",
+      "ground_truth_sha256": "f46ee29679375b7646c3a63f647d5e3582f3392ad64737d0b32740f018086bd7",
+      "embedding_sha256": "f32da1bbf03577167f689cc6cedce87d920568dff8ca60fe65d107a0f5e7f39a",
+      "pretraining_caveat": "Released checkpoints vary in learned weights; this is a same-family checkpoint scale comparison, not a controlled pretraining study."
+    },
+    "s_tuned30": {
+      "case": {
+        "case": "s_tuned30",
+        "model": "s",
+        "prompt": "tuned30"
+      },
+      "fixed": {
+        "image_size": 960,
+        "tile_original_pixels": 1024,
+        "stride": 768,
+        "include_full_image": true,
+        "per_view_max_det": 1000,
+        "final_max_det": 1000,
+        "confidence": 0.001,
+        "nms_iou": 0.7,
+        "batch_size": 1,
+        "precision": "FP32",
+        "cuda_memory_fraction": 0.6,
+        "cpu_threads": 4,
+        "coco_maxDets": [
+          1,
+          10,
+          100
+        ],
+        "dev_images": 56,
+        "epochs": 0,
+        "optimizer": null,
+        "seed": 17
+      },
+      "prompts": [
+        "street light fixture",
+        "electrical junction box",
+        "trash can",
+        "fire hydrant",
+        "manhole cover",
+        "storm drain",
+        "utility pole",
+        "store sign",
+        "surveillance camera",
+        "bench",
+        "mailbox",
+        "bicycle rack",
+        "information sign"
+      ],
+      "embedding_rule": "tuned30",
+      "weight_sha256": "9b2c17ab6124a913e9b3a5c170617920d91b0f01111a8479da69f00e2cf27792",
+      "model_parameter_count": 12759880,
+      "torch": "2.5.1+cu121",
+      "ultralytics": "8.3.93",
+      "python": "3.11.5 | packaged by Anaconda, Inc. | (main, Sep 11 2023, 13:26:23) [MSC v.1916 64 bit (AMD64)]",
+      "platform": "Windows-10-10.0.19045-SP0",
+      "gpu": "NVIDIA GeForce RTX 3060 Laptop GPU",
+      "script_sha256": "f7d4f06d21a8ab7339d59f1ec69ba07d2dd6ee1c81b27e582bea4bb581462027",
+      "dev_list_sha256": "a0caa9158d7e187cc1728897a24fa8c1b0eee82121e20dae968463720a2bd5c7",
+      "ground_truth_sha256": "f46ee29679375b7646c3a63f647d5e3582f3392ad64737d0b32740f018086bd7",
+      "embedding_sha256": "b5d1ce2e18ccd21aa40c71b2b55c52f27d96a939c40dab80194f0994288534a0",
+      "pretraining_caveat": "Released checkpoints vary in learned weights; this is a same-family checkpoint scale comparison, not a controlled pretraining study."
+    }
+  },
+  "same_prompt_model_deltas": {
+    "original": {
+      "m": {
+        "AP50": 0.03297194084275032,
+        "seen_AP50": 0.03443958705587588,
+        "novel_AP50": 0.030623706901749398
+      },
+      "l": {
+        "AP50": 0.043527956106233556,
+        "seen_AP50": 0.04917740533503637,
+        "novel_AP50": 0.034488837340149014
+      }
+    },
+    "short": {
+      "m": {
+        "AP50": 0.03593686243502542,
+        "seen_AP50": 0.04329516860430127,
+        "novel_AP50": 0.024163572564184096
+      },
+      "l": {
+        "AP50": 0.042527141263249024,
+        "seen_AP50": 0.0477478691941198,
+        "novel_AP50": 0.03417397657385583
+      }
+    },
+    "descriptive": {
+      "m": {
+        "AP50": 0.036415655563152266,
+        "seen_AP50": 0.04768136173623755,
+        "novel_AP50": 0.018390525686215742
+      },
+      "l": {
+        "AP50": 0.04310307538759228,
+        "seen_AP50": 0.05140557019824113,
+        "novel_AP50": 0.029819083690554
+      }
+    },
+    "ensemble": {
+      "m": {
+        "AP50": 0.03911005285375245,
+        "seen_AP50": 0.04764827561687318,
+        "novel_AP50": 0.0254488964327593
+      },
+      "l": {
+        "AP50": 0.045568879112754715,
+        "seen_AP50": 0.05193589747784744,
+        "novel_AP50": 0.03538164972860622
+      }
+    }
+  },
+  "same_model_prompt_deltas": {
+    "s": {
+      "short": {
+        "AP50": -0.004848046283425306,
+        "seen_AP50": -0.005779802388368477,
+        "novel_AP50": -0.003357236515516268
+      },
+      "descriptive": {
+        "AP50": -0.005616833289862344,
+        "seen_AP50": -0.006339977343576109,
+        "novel_AP50": -0.004459802803920304
+      },
+      "ensemble": {
+        "AP50": -0.0015165430284670295,
+        "seen_AP50": -0.0009248050310858014,
+        "novel_AP50": -0.002463323824277025
+      }
+    },
+    "m": {
+      "short": {
+        "AP50": -0.0018831246911502064,
+        "seen_AP50": 0.003075779160056913,
+        "novel_AP50": -0.00981737085308157
+      },
+      "descriptive": {
+        "AP50": -0.002173118569460397,
+        "seen_AP50": 0.006901797336785559,
+        "novel_AP50": -0.01669298401945396
+      },
+      "ensemble": {
+        "AP50": 0.004621568982535101,
+        "seen_AP50": 0.012283883529911499,
+        "novel_AP50": -0.007638134293267124
+      }
+    },
+    "l": {
+      "short": {
+        "AP50": -0.005848861126409838,
+        "seen_AP50": -0.007209338529285042,
+        "novel_AP50": -0.00367209728180945
+      },
+      "descriptive": {
+        "AP50": -0.006041714008503618,
+        "seen_AP50": -0.004111812480371346,
+        "novel_AP50": -0.00912955645351532
+      },
+      "ensemble": {
+        "AP50": 0.0005243799780541292,
+        "seen_AP50": 0.0018336871117252684,
+        "novel_AP50": -0.0015705114358198213
+      }
+    }
+  },
+  "selected_on_development": {
+    "best_unadapted": "l_ensemble",
+    "best_all": "s_tuned30",
+    "best_novel": "l_original"
+  },
+  "verification": {
+    "same_development_and_ground_truth": true,
+    "same_inference_settings": true,
+    "s_tuned5_AP50_reproduced": true
+  }
+}
