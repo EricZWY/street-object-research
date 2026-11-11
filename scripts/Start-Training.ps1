@@ -1,4 +1,4 @@
-param([string]$Workspace='E:\CodexWorkspace\StreetObject_DataPlan',[int]$Epochs=5,[string]$RunName=('vistas_prompt_'+(Get-Date -Format 'yyyyMMdd_HHmmss')),[double]$LearningRate=0.0002,[int]$ImageSize=640,[string]$Sampler='uniform',[int]$TrainPerClass=32,[int]$DevPerClass=8)
+param([string]$Workspace='E:\CodexWorkspace\StreetObject_DataPlan',[int]$Epochs=30,[string]$RunName=('vistas_prompt_'+(Get-Date -Format 'yyyyMMdd_HHmmss')),[double]$LearningRate=0.0002,[int]$ImageSize=960,[string]$Sampler='uniform',[int]$TrainPerClass=32,[int]$DevPerClass=8)
 $Host.UI.RawUI.WindowTitle = "Training - $RunName"
 $consoleDir=Join-Path $Workspace 'runs\console_logs'
 New-Item -ItemType Directory -Path $consoleDir -Force | Out-Null
