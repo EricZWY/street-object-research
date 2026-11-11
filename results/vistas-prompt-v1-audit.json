@@ -1,0 +1,9 @@
+{
+  "detector_state_unchanged": true,
+  "frozen_state_sha256": "79b971d42e0b7184b4398a1a1547d1427d036a51280ccefaffce2d2bc2e26f42",
+  "novel_embeddings_bitwise_unchanged": true,
+  "trainable_parameters": 4096,
+  "seen_embedding_l2_change": 0.8771374821662903,
+  "peak_allocated_mib": 303.671875,
+  "peak_reserved_mib": 692.0
+}
