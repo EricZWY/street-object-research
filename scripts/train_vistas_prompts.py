@@ -10,8 +10,8 @@ from ultralytics.cfg import get_cfg
 from ultralytics.utils.ops import non_max_suppression
 from pycocotools.coco import COCO
 from pycocotools.cocoeval import COCOeval
-p=argparse.ArgumentParser();p.add_argument('--workspace',type=Path,required=True);p.add_argument('--epochs',type=int,default=3);p.add_argument('--run-name',default='vistas_prompt_'+datetime.now().strftime('%Y%m%d_%H%M%S'));p.add_argument('--lr',type=float,default=.002);p.add_argument('--imgsz',type=int,default=640);p.add_argument('--train-per-class',type=int,default=32);p.add_argument('--dev-per-class',type=int,default=8);p.add_argument('--sampler',choices=['uniform','class_cycle'],default='uniform');a=p.parse_args();w=a.workspace
-if a.epochs<1 or a.lr<=0 or a.imgsz%32 or a.imgsz<320 or min(a.train_per_class,a.dev_per_class)<1:p.error('Invalid training settings')
+p=argparse.ArgumentParser();p.add_argument('--workspace',type=Path,required=True);p.add_argument('--epochs',type=int,default=30);p.add_argument('--run-name',default='vistas_prompt_'+datetime.now().strftime('%Y%m%d_%H%M%S'));p.add_argument('--lr',type=float,default=.002);p.add_argument('--imgsz',type=int,default=960);p.add_argument('--train-per-class',type=int,default=32);p.add_argument('--dev-per-class',type=int,default=8);p.add_argument('--eval-every',type=int,default=5);p.add_argument('--sampler',choices=['uniform','class_cycle'],default='uniform');a=p.parse_args();w=a.workspace
+if a.eval_every<1 or a.epochs<1 or a.lr<=0 or a.imgsz%32 or a.imgsz<320 or min(a.train_per_class,a.dev_per_class)<1:p.error('Invalid training settings')
 if Path(a.run_name).name!=a.run_name or a.run_name in ('.','..'):p.error('run-name must be one directory name')
 o=w/'runs'/a.run_name;o.mkdir(parents=True,exist_ok=False)
 run_started=time.perf_counter()
@@ -68,7 +68,7 @@ torch.manual_seed(17);torch.set_num_threads(4);torch.cuda.set_per_process_memory
 yolo=YOLOWorld(str(w/'weights/YOLOWorld/yolov8s-worldv2.pt'));yolo.set_classes(prompts);m=yolo.model;m.clip_model=None;m.to('cuda').eval()
 for q in m.parameters():q.requires_grad_(False)
 initial=m.txt_feats.detach().clone().to('cuda').float();learn=torch.nn.Parameter(initial[:,:ns].clone());novel=initial[:,ns:].clone();optimizer=torch.optim.AdamW([learn],lr=a.lr,weight_decay=0);m.args=get_cfg();head=m.model[-1];head.nc=ns;criterion=v8DetectionLoss(m)
-parameters={'manifest':manifest,'optimizer_defaults':optimizer.defaults,'loss_gains':{k:getattr(m.args,k) for k in ['box','cls','dfl']},'scheduler':None,'warmup_steps':0,'gradient_accumulation_steps':1,'gradient_clip_norm':10,'augmentation':'none; OpenCV linear resize, centered pad114 to configured input size, BGR to RGB, divide255','num_workers':0,'cpu_threads':4,'cuda_memory_fraction':0.6,'trainable_parameters':learn.numel(),'frozen_detector_eval_mode':True,'prompt_normalization':'L2 each forward','checkpoint_sha256':hashlib.sha256((w/'weights/YOLOWorld/yolov8s-worldv2.pt').read_bytes()).hexdigest(),'script_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'python':sys.version,'platform':platform.platform(),'cuda_runtime':torch.version.cuda,'gpu':torch.cuda.get_device_name(),'evaluation':{'imgsz':a.imgsz,'conf':0.001,'nms_iou':0.7,'inference_max_det':300,'coco_maxDets':[1,10,100],'iou_range':[0.5,0.95,0.05]},'checkpoint_selection':'last epoch; no early stopping'}
+parameters={'manifest':manifest,'optimizer_defaults':optimizer.defaults,'loss_gains':{k:getattr(m.args,k) for k in ['box','cls','dfl']},'scheduler':None,'warmup_steps':0,'gradient_accumulation_steps':1,'gradient_clip_norm':10,'augmentation':'none; OpenCV linear resize, centered pad114 to configured input size, BGR to RGB, divide255','num_workers':0,'cpu_threads':4,'cuda_memory_fraction':0.6,'trainable_parameters':learn.numel(),'frozen_detector_eval_mode':True,'prompt_normalization':'L2 each forward','checkpoint_sha256':hashlib.sha256((w/'weights/YOLOWorld/yolov8s-worldv2.pt').read_bytes()).hexdigest(),'script_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'python':sys.version,'platform':platform.platform(),'cuda_runtime':torch.version.cuda,'gpu':torch.cuda.get_device_name(),'evaluation':{'imgsz':a.imgsz,'conf':0.001,'nms_iou':0.7,'inference_max_det':300,'coco_maxDets':[1,10,100],'iou_range':[0.5,0.95,0.05]},'checkpoint_selection':'last epoch; periodic development metrics are diagnostic, no early stopping','eval_every':a.eval_every,'visualization':'4 fixed hash-selected dev images plus one fixed crop per class; score>=0.1'}
 save('resolved_parameters.json',parameters)
 table='| Parameter | Value |\n|---|---|\n'+''.join(f'| {k} | {v} |\n' for k,v in {'epochs':a.epochs,'batch size':1,'learning rate':a.lr,'input size':a.imgsz,'sampler':a.sampler,'train images':len(train),'development images':len(dev),'optimizer':'AdamW','trainable parameters':learn.numel(),'precision':'FP32','seed':17,'weight decay':0,'gradient clip':10,'memory fraction':.6}.items())
 (o/'report.md').write_text('# Training run '+a.run_name+'\n\nStatus: running.\n\n## Key parameters\n\n'+table+'\n## Detailed resolved parameters\n\n```json\n'+json.dumps(parameters,indent=2)+'\n```\n',encoding='utf8')
@@ -102,7 +102,7 @@ def evaluate(tag,features):
  pr=ev.eval['precision'];per={}
  for i,c in enumerate(cats):
   v=pr[:,:,i,0,2];v50=pr[0,:,i,0,2];per[c]={'AP':float(v[v>=0].mean()) if (v>=0).any() else None,'AP50':float(v50[v50>=0].mean()) if (v50>=0).any() else None}
- seen=float(np.mean([per[c]['AP'] for c in cats[:ns]]));unseen=float(np.mean([per[c]['AP'] for c in cats[ns:]]));summary={'AP':float(ev.stats[0]),'AP50':float(ev.stats[1]),'seen_AP':seen,'unseen_AP':unseen,'harmonic_AP':2*seen*unseen/(seen+unseen) if seen+unseen else 0,'classes':per,'median_forward_nms_seconds':float(np.median(times[1:]))};save(tag+'_summary.json',summary);log(f'{tag}: '+json.dumps({k:v for k,v in summary.items() if k!="classes"}));return summary
+ seen=float(np.mean([per[c]['AP'] for c in cats[:ns]]));unseen=float(np.mean([per[c]['AP'] for c in cats[ns:]]));summary={'AP':float(ev.stats[0]),'AP50':float(ev.stats[1]),'seen_AP':seen,'unseen_AP':unseen,'harmonic_AP':2*seen*unseen/(seen+unseen) if seen+unseen else 0,'seen_AP50':float(np.mean([per[c]['AP50'] for c in cats[:ns]])),'unseen_AP50':float(np.mean([per[c]['AP50'] for c in cats[ns:]])),'classes':per,'median_forward_nms_seconds':float(np.median(times[1:]))};save(tag+'_summary.json',summary);log(f'{tag}: '+json.dumps({k:v for k,v in summary.items() if k!="classes"}));return summary
 save('train_script_snapshot.py.json',{'source':Path(__file__).read_text(encoding='utf-8-sig')})
 baseline=evaluate('baseline',initial);head.nc=ns;torch.cuda.reset_peak_memory_stats();lossrows=[]
 phase_starts['training']=time.perf_counter()
@@ -120,12 +120,19 @@ for ep in range(a.epochs):
   optimizer.zero_grad();features=torch.nn.functional.normalize(learn,dim=-1);out=m.predict(x,txt_feats=features);loss,parts=criterion(out,batch);assert torch.isfinite(loss);loss.backward();assert learn.grad is not None and torch.isfinite(learn.grad).all();torch.nn.utils.clip_grad_norm_([learn],10);optimizer.step();tot.append(float(loss.detach()));lossrows.append({'epoch':ep+1,'step':step+1,'loss':tot[-1]})
   progress('training',ep*len(train)+step+1,a.epochs*len(train),f'epoch={ep+1}/{a.epochs} step={step+1}/{len(train)} loss={tot[-1]:.4f} lr={optimizer.param_groups[0]["lr"]} cuda_alloc={torch.cuda.memory_allocated()/2**20:.0f}MiB')
  log(f'epoch {ep+1} mean loss {np.mean(tot):.4f}');torch.save({'seen_embeddings':learn.detach().cpu(),'initial_embeddings':initial.cpu(),'epoch':ep+1},o/f'prompt_epoch_{ep+1}.pt');save('loss.json',lossrows)
+ if (ep+1)%a.eval_every==0 and ep+1<a.epochs:
+  evaluate(f'epoch_{ep+1}',torch.cat([torch.nn.functional.normalize(learn.detach(),dim=-1),novel],dim=1))
 finalfeatures=torch.cat([torch.nn.functional.normalize(learn.detach(),dim=-1),novel],dim=1);after=digest();assert before==after;assert torch.equal(finalfeatures[:,ns:],initial[:,ns:]);tuned=evaluate('tuned',finalfeatures)
 audit={'detector_state_unchanged':before==after,'frozen_state_sha256':before,'novel_embeddings_bitwise_unchanged':True,'trainable_parameters':learn.numel(),'seen_embedding_l2_change':float((finalfeatures[:,:ns]-initial[:,:ns]).norm()),'peak_allocated_mib':torch.cuda.max_memory_allocated()/2**20,'peak_reserved_mib':torch.cuda.max_memory_reserved()/2**20};save('audit.json',audit);torch.save({'text_embeddings':finalfeatures.cpu(),'prompts':prompts},o/'tuned_prompts.pt');log('COMPLETE '+json.dumps(audit))
 
+from visualize_vistas_run import render_run
+render_run(w,o)
 save('status.json',{'status':'completed','elapsed_seconds':time.perf_counter()-run_started})
 with (o/'report.md').open('a',encoding='utf8') as f:f.write('\n## Results\n\nStatus: completed.\n\n```json\n'+json.dumps({'baseline':baseline,'tuned':tuned,'audit':audit},indent=2)+'\n```\n')
 
 report_path=o/'report.md'
 report_path.write_text(report_path.read_text(encoding='utf8').replace('Status: running.','Status: completed.',1),encoding='utf8')
+
+with report_path.open('a',encoding='utf8') as f:
+ f.write('\n## Fixed visual samples\n\nDisplay threshold 0.1, independently of AP evaluation threshold 0.001. Same hash-selected samples across comparable runs.\n\n![Fixed samples](visual_samples/fixed_samples.jpg)\n\n'+''.join(f'![Class crops {j}](visual_samples/class_crops_{j}.jpg)\n\n' for j in range(1,5)))
 
