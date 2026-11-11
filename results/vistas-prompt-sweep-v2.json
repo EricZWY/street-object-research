@@ -1,0 +1,978 @@
+{
+  "control": {
+    "baseline": {
+      "AP": 0.04655685989516098,
+      "AP50": 0.06649769127881648,
+      "seen_AP": 0.05016949079531169,
+      "unseen_AP": 0.04077665045491986,
+      "harmonic_AP": 0.044988028332791655,
+      "classes": {
+        "object--street-light": {
+          "AP": 0.0003720768489694926,
+          "AP50": 0.0009779919487434392
+        },
+        "object--junction-box": {
+          "AP": 0.0,
+          "AP50": 0.0
+        },
+        "object--trash-can": {
+          "AP": 0.16871608398599983,
+          "AP50": 0.2504430143294144
+        },
+        "object--fire-hydrant": {
+          "AP": 0.1442085172372659,
+          "AP50": 0.17153763569127997
+        },
+        "object--manhole": {
+          "AP": 0.04092409240924092,
+          "AP50": 0.048561999057048555
+        },
+        "object--catch-basin": {
+          "AP": 0.0,
+          "AP50": 0.0
+        },
+        "object--support--utility-pole": {
+          "AP": 0.025936703931719145,
+          "AP50": 0.04943454245336658
+        },
+        "object--sign--store": {
+          "AP": 0.0211984519492982,
+          "AP50": 0.046068639541344256
+        },
+        "object--cctv-camera": {
+          "AP": 0.0013709063214013709,
+          "AP50": 0.00456968773800457
+        },
+        "object--bench": {
+          "AP": 0.18004479515061256,
+          "AP50": 0.23727812665442816
+        },
+        "object--mailbox": {
+          "AP": 0.0005907773097751763,
+          "AP50": 0.0020786609047645094
+        },
+        "object--bike-rack": {
+          "AP": 0.008980402318127247,
+          "AP50": 0.03705039431799753
+        },
+        "object--sign--information": {
+          "AP": 0.012896371174682987,
+          "AP50": 0.01646929398822235
+        }
+      },
+      "median_forward_nms_seconds": 0.021684699997422285
+    },
+    "tuned": {
+      "AP": 0.06109611279431756,
+      "AP50": 0.0975431229288681,
+      "seen_AP": 0.07466287928140383,
+      "unseen_AP": 0.039389286414979525,
+      "harmonic_AP": 0.05157144572618167,
+      "classes": {
+        "object--street-light": {
+          "AP": 0.04109620419124037,
+          "AP50": 0.08666975476830627
+        },
+        "object--junction-box": {
+          "AP": 0.04330033003300329,
+          "AP50": 0.09504950495049506
+        },
+        "object--trash-can": {
+          "AP": 0.1569733191753742,
+          "AP50": 0.23877545233647335
+        },
+        "object--fire-hydrant": {
+          "AP": 0.15693069306930693,
+          "AP50": 0.18741159830268744
+        },
+        "object--manhole": {
+          "AP": 0.06811571439367699,
+          "AP50": 0.10203994204434774
+        },
+        "object--catch-basin": {
+          "AP": 0.01920437483769679,
+          "AP50": 0.04801736331268594
+        },
+        "object--support--utility-pole": {
+          "AP": 0.0453598133340632,
+          "AP50": 0.10106234825865258
+        },
+        "object--sign--store": {
+          "AP": 0.06632258521686887,
+          "AP50": 0.1424211786424658
+        },
+        "object--cctv-camera": {
+          "AP": 0.0,
+          "AP50": 0.0
+        },
+        "object--bench": {
+          "AP": 0.17895957993692743,
+          "AP50": 0.23446576950973513
+        },
+        "object--mailbox": {
+          "AP": 3.626736300003626e-05,
+          "AP50": 0.00036267363000036263
+        },
+        "object--bike-rack": {
+          "AP": 0.005462103289802769,
+          "AP50": 0.015911586752538065
+        },
+        "object--sign--information": {
+          "AP": 0.01248848148516739,
+          "AP50": 0.01587342556689752
+        }
+      },
+      "median_forward_nms_seconds": 0.03301110000029439
+    },
+    "audit": {
+      "detector_state_unchanged": true,
+      "frozen_state_sha256": "79b971d42e0b7184b4398a1a1547d1427d036a51280ccefaffce2d2bc2e26f42",
+      "novel_embeddings_bitwise_unchanged": true,
+      "trainable_parameters": 4096,
+      "seen_embedding_l2_change": 1.3851209878921509,
+      "peak_allocated_mib": 306.01953125,
+      "peak_reserved_mib": 692.0
+    },
+    "status": {
+      "status": "completed",
+      "elapsed_seconds": 207.86014019999857
+    },
+    "parameters": {
+      "manifest": {
+        "categories": [
+          "object--street-light",
+          "object--junction-box",
+          "object--trash-can",
+          "object--fire-hydrant",
+          "object--manhole",
+          "object--catch-basin",
+          "object--support--utility-pole",
+          "object--sign--store",
+          "object--cctv-camera",
+          "object--bench",
+          "object--mailbox",
+          "object--bike-rack",
+          "object--sign--information"
+        ],
+        "prompts": [
+          "street light fixture",
+          "electrical junction box",
+          "trash can",
+          "fire hydrant",
+          "manhole cover",
+          "storm drain",
+          "utility pole",
+          "store sign",
+          "surveillance camera",
+          "bench",
+          "mailbox",
+          "bicycle rack",
+          "information sign"
+        ],
+        "epochs": 5,
+        "lr": 0.002,
+        "seed": 17,
+        "image_size": 640,
+        "batch": 1,
+        "precision": "FP32",
+        "train_selection": "32 images per seen class, SHA256 order, union; excludes annotated novel classes/crowds",
+        "dev_selection": "8 images per class, union; excludes previously inspected IDs and training IDs/image SHA256",
+        "bbox": "mask min inclusive max exclusive; positive pixel-area retained",
+        "sampler": "uniform",
+        "optimizer": "AdamW only seen embedding, weight_decay=0",
+        "ultralytics": "8.3.93",
+        "torch": "2.5.1+cu121",
+        "official_validation_used": false,
+        "train_count": 141,
+        "dev_count": 56,
+        "sample_id_list_sha256": "e0ef01b416c8b39de2dfa4f7daa96e94d25625324c79f7237f3b5657cc04f7d2"
+      },
+      "optimizer_defaults": {
+        "lr": 0.002,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08,
+        "weight_decay": 0,
+        "amsgrad": false,
+        "foreach": null,
+        "maximize": false,
+        "capturable": false,
+        "differentiable": false,
+        "fused": null
+      },
+      "loss_gains": {
+        "box": 7.5,
+        "cls": 0.5,
+        "dfl": 1.5
+      },
+      "scheduler": null,
+      "warmup_steps": 0,
+      "gradient_accumulation_steps": 1,
+      "gradient_clip_norm": 10,
+      "augmentation": "none; OpenCV linear resize, centered pad114 to configured input size, BGR to RGB, divide255",
+      "num_workers": 0,
+      "cpu_threads": 4,
+      "cuda_memory_fraction": 0.6,
+      "trainable_parameters": 4096,
+      "frozen_detector_eval_mode": true,
+      "prompt_normalization": "L2 each forward",
+      "checkpoint_sha256": "9b2c17ab6124a913e9b3a5c170617920d91b0f01111a8479da69f00e2cf27792",
+      "script_sha256": "2f0c0a3811d8bed2d6b6f280b07c5456edb46d515ec9479fa21347d8c1552999",
+      "python": "3.11.5 | packaged by Anaconda, Inc. | (main, Sep 11 2023, 13:26:23) [MSC v.1916 64 bit (AMD64)]",
+      "platform": "Windows-10-10.0.19045-SP0",
+      "cuda_runtime": "12.1",
+      "gpu": "NVIDIA GeForce RTX 3060 Laptop GPU",
+      "evaluation": {
+        "imgsz": 640,
+        "conf": 0.001,
+        "nms_iou": 0.7,
+        "inference_max_det": 300,
+        "coco_maxDets": [
+          1,
+          10,
+          100
+        ],
+        "iou_range": [
+          0.5,
+          0.95,
+          0.05
+        ]
+      },
+      "checkpoint_selection": "last epoch; no early stopping"
+    }
+  },
+  "lowlr": {
+    "baseline": {
+      "AP": 0.04655685989516098,
+      "AP50": 0.06649769127881648,
+      "seen_AP": 0.05016949079531169,
+      "unseen_AP": 0.04077665045491986,
+      "harmonic_AP": 0.044988028332791655,
+      "classes": {
+        "object--street-light": {
+          "AP": 0.0003720768489694926,
+          "AP50": 0.0009779919487434392
+        },
+        "object--junction-box": {
+          "AP": 0.0,
+          "AP50": 0.0
+        },
+        "object--trash-can": {
+          "AP": 0.16871608398599983,
+          "AP50": 0.2504430143294144
+        },
+        "object--fire-hydrant": {
+          "AP": 0.1442085172372659,
+          "AP50": 0.17153763569127997
+        },
+        "object--manhole": {
+          "AP": 0.04092409240924092,
+          "AP50": 0.048561999057048555
+        },
+        "object--catch-basin": {
+          "AP": 0.0,
+          "AP50": 0.0
+        },
+        "object--support--utility-pole": {
+          "AP": 0.025936703931719145,
+          "AP50": 0.04943454245336658
+        },
+        "object--sign--store": {
+          "AP": 0.0211984519492982,
+          "AP50": 0.046068639541344256
+        },
+        "object--cctv-camera": {
+          "AP": 0.0013709063214013709,
+          "AP50": 0.00456968773800457
+        },
+        "object--bench": {
+          "AP": 0.18004479515061256,
+          "AP50": 0.23727812665442816
+        },
+        "object--mailbox": {
+          "AP": 0.0005907773097751763,
+          "AP50": 0.0020786609047645094
+        },
+        "object--bike-rack": {
+          "AP": 0.008980402318127247,
+          "AP50": 0.03705039431799753
+        },
+        "object--sign--information": {
+          "AP": 0.012896371174682987,
+          "AP50": 0.01646929398822235
+        }
+      },
+      "median_forward_nms_seconds": 0.018166399997426197
+    },
+    "tuned": {
+      "AP": 0.0632175689951756,
+      "AP50": 0.09881020883834363,
+      "seen_AP": 0.07834737827397982,
+      "unseen_AP": 0.039009874149088845,
+      "harmonic_AP": 0.052085768936734854,
+      "classes": {
+        "object--street-light": {
+          "AP": 0.03797886569658975,
+          "AP50": 0.0788634382281317
+        },
+        "object--junction-box": {
+          "AP": 0.05480457661696349,
+          "AP50": 0.11809099819663656
+        },
+        "object--trash-can": {
+          "AP": 0.16642660353882194,
+          "AP50": 0.2367888406180568
+        },
+        "object--fire-hydrant": {
+          "AP": 0.1532853285328533,
+          "AP50": 0.1926192619261926
+        },
+        "object--manhole": {
+          "AP": 0.10255149091014602,
+          "AP50": 0.1519724039878703
+        },
+        "object--catch-basin": {
+          "AP": 0.011117982625071316,
+          "AP50": 0.021442336985991333
+        },
+        "object--support--utility-pole": {
+          "AP": 0.05075477215679383,
+          "AP50": 0.09903352898412916
+        },
+        "object--sign--store": {
+          "AP": 0.04985940611459888,
+          "AP50": 0.11256964248050327
+        },
+        "object--cctv-camera": {
+          "AP": 0.0,
+          "AP50": 0.0
+        },
+        "object--bench": {
+          "AP": 0.17067132854731393,
+          "AP50": 0.23364064944777538
+        },
+        "object--mailbox": {
+          "AP": 0.0,
+          "AP50": 0.0
+        },
+        "object--bike-rack": {
+          "AP": 0.008468940885779935,
+          "AP50": 0.018457705601017827
+        },
+        "object--sign--information": {
+          "AP": 0.015909101312350373,
+          "AP50": 0.021053908442161828
+        }
+      },
+      "median_forward_nms_seconds": 0.03206279999722028
+    },
+    "audit": {
+      "detector_state_unchanged": true,
+      "frozen_state_sha256": "79b971d42e0b7184b4398a1a1547d1427d036a51280ccefaffce2d2bc2e26f42",
+      "novel_embeddings_bitwise_unchanged": true,
+      "trainable_parameters": 4096,
+      "seen_embedding_l2_change": 0.45611104369163513,
+      "peak_allocated_mib": 306.01953125,
+      "peak_reserved_mib": 692.0
+    },
+    "status": {
+      "status": "completed",
+      "elapsed_seconds": 199.9445493000021
+    },
+    "parameters": {
+      "manifest": {
+        "categories": [
+          "object--street-light",
+          "object--junction-box",
+          "object--trash-can",
+          "object--fire-hydrant",
+          "object--manhole",
+          "object--catch-basin",
+          "object--support--utility-pole",
+          "object--sign--store",
+          "object--cctv-camera",
+          "object--bench",
+          "object--mailbox",
+          "object--bike-rack",
+          "object--sign--information"
+        ],
+        "prompts": [
+          "street light fixture",
+          "electrical junction box",
+          "trash can",
+          "fire hydrant",
+          "manhole cover",
+          "storm drain",
+          "utility pole",
+          "store sign",
+          "surveillance camera",
+          "bench",
+          "mailbox",
+          "bicycle rack",
+          "information sign"
+        ],
+        "epochs": 5,
+        "lr": 0.0002,
+        "seed": 17,
+        "image_size": 640,
+        "batch": 1,
+        "precision": "FP32",
+        "train_selection": "32 images per seen class, SHA256 order, union; excludes annotated novel classes/crowds",
+        "dev_selection": "8 images per class, union; excludes previously inspected IDs and training IDs/image SHA256",
+        "bbox": "mask min inclusive max exclusive; positive pixel-area retained",
+        "sampler": "uniform",
+        "optimizer": "AdamW only seen embedding, weight_decay=0",
+        "ultralytics": "8.3.93",
+        "torch": "2.5.1+cu121",
+        "official_validation_used": false,
+        "train_count": 141,
+        "dev_count": 56,
+        "sample_id_list_sha256": "e0ef01b416c8b39de2dfa4f7daa96e94d25625324c79f7237f3b5657cc04f7d2"
+      },
+      "optimizer_defaults": {
+        "lr": 0.0002,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08,
+        "weight_decay": 0,
+        "amsgrad": false,
+        "foreach": null,
+        "maximize": false,
+        "capturable": false,
+        "differentiable": false,
+        "fused": null
+      },
+      "loss_gains": {
+        "box": 7.5,
+        "cls": 0.5,
+        "dfl": 1.5
+      },
+      "scheduler": null,
+      "warmup_steps": 0,
+      "gradient_accumulation_steps": 1,
+      "gradient_clip_norm": 10,
+      "augmentation": "none; OpenCV linear resize, centered pad114 to configured input size, BGR to RGB, divide255",
+      "num_workers": 0,
+      "cpu_threads": 4,
+      "cuda_memory_fraction": 0.6,
+      "trainable_parameters": 4096,
+      "frozen_detector_eval_mode": true,
+      "prompt_normalization": "L2 each forward",
+      "checkpoint_sha256": "9b2c17ab6124a913e9b3a5c170617920d91b0f01111a8479da69f00e2cf27792",
+      "script_sha256": "2f0c0a3811d8bed2d6b6f280b07c5456edb46d515ec9479fa21347d8c1552999",
+      "python": "3.11.5 | packaged by Anaconda, Inc. | (main, Sep 11 2023, 13:26:23) [MSC v.1916 64 bit (AMD64)]",
+      "platform": "Windows-10-10.0.19045-SP0",
+      "cuda_runtime": "12.1",
+      "gpu": "NVIDIA GeForce RTX 3060 Laptop GPU",
+      "evaluation": {
+        "imgsz": 640,
+        "conf": 0.001,
+        "nms_iou": 0.7,
+        "inference_max_det": 300,
+        "coco_maxDets": [
+          1,
+          10,
+          100
+        ],
+        "iou_range": [
+          0.5,
+          0.95,
+          0.05
+        ]
+      },
+      "checkpoint_selection": "last epoch; no early stopping"
+    }
+  },
+  "balanced": {
+    "baseline": {
+      "AP": 0.04655685989516098,
+      "AP50": 0.06649769127881648,
+      "seen_AP": 0.05016949079531169,
+      "unseen_AP": 0.04077665045491986,
+      "harmonic_AP": 0.044988028332791655,
+      "classes": {
+        "object--street-light": {
+          "AP": 0.0003720768489694926,
+          "AP50": 0.0009779919487434392
+        },
+        "object--junction-box": {
+          "AP": 0.0,
+          "AP50": 0.0
+        },
+        "object--trash-can": {
+          "AP": 0.16871608398599983,
+          "AP50": 0.2504430143294144
+        },
+        "object--fire-hydrant": {
+          "AP": 0.1442085172372659,
+          "AP50": 0.17153763569127997
+        },
+        "object--manhole": {
+          "AP": 0.04092409240924092,
+          "AP50": 0.048561999057048555
+        },
+        "object--catch-basin": {
+          "AP": 0.0,
+          "AP50": 0.0
+        },
+        "object--support--utility-pole": {
+          "AP": 0.025936703931719145,
+          "AP50": 0.04943454245336658
+        },
+        "object--sign--store": {
+          "AP": 0.0211984519492982,
+          "AP50": 0.046068639541344256
+        },
+        "object--cctv-camera": {
+          "AP": 0.0013709063214013709,
+          "AP50": 0.00456968773800457
+        },
+        "object--bench": {
+          "AP": 0.18004479515061256,
+          "AP50": 0.23727812665442816
+        },
+        "object--mailbox": {
+          "AP": 0.0005907773097751763,
+          "AP50": 0.0020786609047645094
+        },
+        "object--bike-rack": {
+          "AP": 0.008980402318127247,
+          "AP50": 0.03705039431799753
+        },
+        "object--sign--information": {
+          "AP": 0.012896371174682987,
+          "AP50": 0.01646929398822235
+        }
+      },
+      "median_forward_nms_seconds": 0.02028490000157035
+    },
+    "tuned": {
+      "AP": 0.06597295804745539,
+      "AP50": 0.10231884221057953,
+      "seen_AP": 0.08301901224915843,
+      "unseen_AP": 0.03869927132473054,
+      "harmonic_AP": 0.052790348102321014,
+      "classes": {
+        "object--street-light": {
+          "AP": 0.04087088873049799,
+          "AP50": 0.07768879936206181
+        },
+        "object--junction-box": {
+          "AP": 0.06263710370129684,
+          "AP50": 0.13854845850438702
+        },
+        "object--trash-can": {
+          "AP": 0.16692203407875728,
+          "AP50": 0.2523363506325717
+        },
+        "object--fire-hydrant": {
+          "AP": 0.16495049504950496,
+          "AP50": 0.22178217821782176
+        },
+        "object--manhole": {
+          "AP": 0.11295087808540712,
+          "AP50": 0.15048732245536256
+        },
+        "object--catch-basin": {
+          "AP": 0.0020724422331039626,
+          "AP50": 0.004382559271494236
+        },
+        "object--support--utility-pole": {
+          "AP": 0.049346056398558616,
+          "AP50": 0.09663595137789499
+        },
+        "object--sign--store": {
+          "AP": 0.06440219971614067,
+          "AP50": 0.12605816946776235
+        },
+        "object--cctv-camera": {
+          "AP": 0.0,
+          "AP50": 0.0
+        },
+        "object--bench": {
+          "AP": 0.17957742963852869,
+          "AP50": 0.23630255182380983
+        },
+        "object--mailbox": {
+          "AP": 5.6902241948332766e-05,
+          "AP50": 0.0005690224194833276
+        },
+        "object--bike-rack": {
+          "AP": 0.007831421682869648,
+          "AP50": 0.016802730119375886
+        },
+        "object--sign--information": {
+          "AP": 0.006030603060306031,
+          "AP50": 0.00855085508550855
+        }
+      },
+      "median_forward_nms_seconds": 0.028597299999091774
+    },
+    "audit": {
+      "detector_state_unchanged": true,
+      "frozen_state_sha256": "79b971d42e0b7184b4398a1a1547d1427d036a51280ccefaffce2d2bc2e26f42",
+      "novel_embeddings_bitwise_unchanged": true,
+      "trainable_parameters": 4096,
+      "seen_embedding_l2_change": 0.48636552691459656,
+      "peak_allocated_mib": 306.01953125,
+      "peak_reserved_mib": 692.0
+    },
+    "status": {
+      "status": "completed",
+      "elapsed_seconds": 200.4718165000013
+    },
+    "parameters": {
+      "manifest": {
+        "categories": [
+          "object--street-light",
+          "object--junction-box",
+          "object--trash-can",
+          "object--fire-hydrant",
+          "object--manhole",
+          "object--catch-basin",
+          "object--support--utility-pole",
+          "object--sign--store",
+          "object--cctv-camera",
+          "object--bench",
+          "object--mailbox",
+          "object--bike-rack",
+          "object--sign--information"
+        ],
+        "prompts": [
+          "street light fixture",
+          "electrical junction box",
+          "trash can",
+          "fire hydrant",
+          "manhole cover",
+          "storm drain",
+          "utility pole",
+          "store sign",
+          "surveillance camera",
+          "bench",
+          "mailbox",
+          "bicycle rack",
+          "information sign"
+        ],
+        "epochs": 5,
+        "lr": 0.0002,
+        "seed": 17,
+        "image_size": 640,
+        "batch": 1,
+        "precision": "FP32",
+        "train_selection": "32 images per seen class, SHA256 order, union; excludes annotated novel classes/crowds",
+        "dev_selection": "8 images per class, union; excludes previously inspected IDs and training IDs/image SHA256",
+        "bbox": "mask min inclusive max exclusive; positive pixel-area retained",
+        "sampler": "class_cycle",
+        "optimizer": "AdamW only seen embedding, weight_decay=0",
+        "ultralytics": "8.3.93",
+        "torch": "2.5.1+cu121",
+        "official_validation_used": false,
+        "train_count": 141,
+        "dev_count": 56,
+        "sample_id_list_sha256": "e0ef01b416c8b39de2dfa4f7daa96e94d25625324c79f7237f3b5657cc04f7d2"
+      },
+      "optimizer_defaults": {
+        "lr": 0.0002,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08,
+        "weight_decay": 0,
+        "amsgrad": false,
+        "foreach": null,
+        "maximize": false,
+        "capturable": false,
+        "differentiable": false,
+        "fused": null
+      },
+      "loss_gains": {
+        "box": 7.5,
+        "cls": 0.5,
+        "dfl": 1.5
+      },
+      "scheduler": null,
+      "warmup_steps": 0,
+      "gradient_accumulation_steps": 1,
+      "gradient_clip_norm": 10,
+      "augmentation": "none; OpenCV linear resize, centered pad114 to configured input size, BGR to RGB, divide255",
+      "num_workers": 0,
+      "cpu_threads": 4,
+      "cuda_memory_fraction": 0.6,
+      "trainable_parameters": 4096,
+      "frozen_detector_eval_mode": true,
+      "prompt_normalization": "L2 each forward",
+      "checkpoint_sha256": "9b2c17ab6124a913e9b3a5c170617920d91b0f01111a8479da69f00e2cf27792",
+      "script_sha256": "2f0c0a3811d8bed2d6b6f280b07c5456edb46d515ec9479fa21347d8c1552999",
+      "python": "3.11.5 | packaged by Anaconda, Inc. | (main, Sep 11 2023, 13:26:23) [MSC v.1916 64 bit (AMD64)]",
+      "platform": "Windows-10-10.0.19045-SP0",
+      "cuda_runtime": "12.1",
+      "gpu": "NVIDIA GeForce RTX 3060 Laptop GPU",
+      "evaluation": {
+        "imgsz": 640,
+        "conf": 0.001,
+        "nms_iou": 0.7,
+        "inference_max_det": 300,
+        "coco_maxDets": [
+          1,
+          10,
+          100
+        ],
+        "iou_range": [
+          0.5,
+          0.95,
+          0.05
+        ]
+      },
+      "checkpoint_selection": "last epoch; no early stopping"
+    }
+  },
+  "highres": {
+    "baseline": {
+      "AP": 0.06485867064613424,
+      "AP50": 0.09127821279894795,
+      "seen_AP": 0.06319478335881559,
+      "unseen_AP": 0.06752089030584406,
+      "harmonic_AP": 0.06528624939070006,
+      "classes": {
+        "object--street-light": {
+          "AP": 0.0008907664912027276,
+          "AP50": 0.0023709231869334054
+        },
+        "object--junction-box": {
+          "AP": 0.0,
+          "AP50": 0.0
+        },
+        "object--trash-can": {
+          "AP": 0.22576151552458923,
+          "AP50": 0.3142392496582643
+        },
+        "object--fire-hydrant": {
+          "AP": 0.17688320556193549,
+          "AP50": 0.2125453924702815
+        },
+        "object--manhole": {
+          "AP": 0.06117010730126151,
+          "AP50": 0.0799915607999156
+        },
+        "object--catch-basin": {
+          "AP": 0.0,
+          "AP50": 0.0
+        },
+        "object--support--utility-pole": {
+          "AP": 0.023028831318962672,
+          "AP50": 0.05124053749565751
+        },
+        "object--sign--store": {
+          "AP": 0.017823840672573078,
+          "AP50": 0.03107548763005556
+        },
+        "object--cctv-camera": {
+          "AP": 0.0013270289877284943,
+          "AP50": 0.00996995984428164
+        },
+        "object--bench": {
+          "AP": 0.2748480823709133,
+          "AP50": 0.371689879473176
+        },
+        "object--mailbox": {
+          "AP": 0.0028160304344655804,
+          "AP50": 0.004049693734211837
+        },
+        "object--bike-rack": {
+          "AP": 0.01864558768918297,
+          "AP50": 0.06519789923350164
+        },
+        "object--sign--information": {
+          "AP": 0.039967722046929964,
+          "AP50": 0.044246182860044246
+        }
+      },
+      "median_forward_nms_seconds": 0.025834600000962382
+    },
+    "tuned": {
+      "AP": 0.0964360761529683,
+      "AP50": 0.14908037113203487,
+      "seen_AP": 0.11490556656803667,
+      "unseen_AP": 0.06688489148885883,
+      "harmonic_AP": 0.0845528025344833,
+      "classes": {
+        "object--street-light": {
+          "AP": 0.06711090744863664,
+          "AP50": 0.12230816424474741
+        },
+        "object--junction-box": {
+          "AP": 0.09080309831310464,
+          "AP50": 0.12794315438090453
+        },
+        "object--trash-can": {
+          "AP": 0.23007755991420004,
+          "AP50": 0.3388446402532978
+        },
+        "object--fire-hydrant": {
+          "AP": 0.1512022630834512,
+          "AP50": 0.18104667609618103
+        },
+        "object--manhole": {
+          "AP": 0.18502560061395013,
+          "AP50": 0.2831521855406864
+        },
+        "object--catch-basin": {
+          "AP": 0.05477540323859737,
+          "AP50": 0.10678936826160242
+        },
+        "object--support--utility-pole": {
+          "AP": 0.053277127438992815,
+          "AP50": 0.13546770892904933
+        },
+        "object--sign--store": {
+          "AP": 0.08697257249336061,
+          "AP50": 0.1638077548423156
+        },
+        "object--cctv-camera": {
+          "AP": 0.0007425742574257426,
+          "AP50": 0.0037128712871287127
+        },
+        "object--bench": {
+          "AP": 0.2622592847240271,
+          "AP50": 0.34145488017130904
+        },
+        "object--mailbox": {
+          "AP": 0.0018443168492451925,
+          "AP50": 0.003197455821531521
+        },
+        "object--bike-rack": {
+          "AP": 0.02759639111685411,
+          "AP50": 0.08199974825065093
+        },
+        "object--sign--information": {
+          "AP": 0.041981890496741975,
+          "AP50": 0.048320216637048316
+        }
+      },
+      "median_forward_nms_seconds": 0.03206050000153482
+    },
+    "audit": {
+      "detector_state_unchanged": true,
+      "frozen_state_sha256": "79b971d42e0b7184b4398a1a1547d1427d036a51280ccefaffce2d2bc2e26f42",
+      "novel_embeddings_bitwise_unchanged": true,
+      "trainable_parameters": 4096,
+      "seen_embedding_l2_change": 0.45614033937454224,
+      "peak_allocated_mib": 549.52294921875,
+      "peak_reserved_mib": 754.0
+    },
+    "status": {
+      "status": "completed",
+      "elapsed_seconds": 205.28111160000117
+    },
+    "parameters": {
+      "manifest": {
+        "categories": [
+          "object--street-light",
+          "object--junction-box",
+          "object--trash-can",
+          "object--fire-hydrant",
+          "object--manhole",
+          "object--catch-basin",
+          "object--support--utility-pole",
+          "object--sign--store",
+          "object--cctv-camera",
+          "object--bench",
+          "object--mailbox",
+          "object--bike-rack",
+          "object--sign--information"
+        ],
+        "prompts": [
+          "street light fixture",
+          "electrical junction box",
+          "trash can",
+          "fire hydrant",
+          "manhole cover",
+          "storm drain",
+          "utility pole",
+          "store sign",
+          "surveillance camera",
+          "bench",
+          "mailbox",
+          "bicycle rack",
+          "information sign"
+        ],
+        "epochs": 5,
+        "lr": 0.0002,
+        "seed": 17,
+        "image_size": 960,
+        "batch": 1,
+        "precision": "FP32",
+        "train_selection": "32 images per seen class, SHA256 order, union; excludes annotated novel classes/crowds",
+        "dev_selection": "8 images per class, union; excludes previously inspected IDs and training IDs/image SHA256",
+        "bbox": "mask min inclusive max exclusive; positive pixel-area retained",
+        "sampler": "uniform",
+        "optimizer": "AdamW only seen embedding, weight_decay=0",
+        "ultralytics": "8.3.93",
+        "torch": "2.5.1+cu121",
+        "official_validation_used": false,
+        "train_count": 141,
+        "dev_count": 56,
+        "sample_id_list_sha256": "e0ef01b416c8b39de2dfa4f7daa96e94d25625324c79f7237f3b5657cc04f7d2"
+      },
+      "optimizer_defaults": {
+        "lr": 0.0002,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08,
+        "weight_decay": 0,
+        "amsgrad": false,
+        "foreach": null,
+        "maximize": false,
+        "capturable": false,
+        "differentiable": false,
+        "fused": null
+      },
+      "loss_gains": {
+        "box": 7.5,
+        "cls": 0.5,
+        "dfl": 1.5
+      },
+      "scheduler": null,
+      "warmup_steps": 0,
+      "gradient_accumulation_steps": 1,
+      "gradient_clip_norm": 10,
+      "augmentation": "none; OpenCV linear resize, centered pad114 to configured input size, BGR to RGB, divide255",
+      "num_workers": 0,
+      "cpu_threads": 4,
+      "cuda_memory_fraction": 0.6,
+      "trainable_parameters": 4096,
+      "frozen_detector_eval_mode": true,
+      "prompt_normalization": "L2 each forward",
+      "checkpoint_sha256": "9b2c17ab6124a913e9b3a5c170617920d91b0f01111a8479da69f00e2cf27792",
+      "script_sha256": "2f0c0a3811d8bed2d6b6f280b07c5456edb46d515ec9479fa21347d8c1552999",
+      "python": "3.11.5 | packaged by Anaconda, Inc. | (main, Sep 11 2023, 13:26:23) [MSC v.1916 64 bit (AMD64)]",
+      "platform": "Windows-10-10.0.19045-SP0",
+      "cuda_runtime": "12.1",
+      "gpu": "NVIDIA GeForce RTX 3060 Laptop GPU",
+      "evaluation": {
+        "imgsz": 960,
+        "conf": 0.001,
+        "nms_iou": 0.7,
+        "inference_max_det": 300,
+        "coco_maxDets": [
+          1,
+          10,
+          100
+        ],
+        "iou_range": [
+          0.5,
+          0.95,
+          0.05
+        ]
+      },
+      "checkpoint_selection": "last epoch; no early stopping"
+    }
+  }
+}
