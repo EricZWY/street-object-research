@@ -1,0 +1,442 @@
+{
+  "development_set": "56 images / 844 GT, 8 seen + 5 novel classes (same as runs/vistas_sweep_v2_highres)",
+  "official_validation_used": false,
+  "inference_geometry": {
+    "image_size": 960,
+    "tile_original_pixels": 1024,
+    "stride": 768,
+    "views": "full image + tiles",
+    "confidence": 0.001,
+    "nms_iou": 0.7,
+    "max_output": 1000
+  },
+  "cases": [
+    {
+      "label": "yoloworld_s_zeroshot",
+      "note": "reference, no adaptation",
+      "summary_path": "E:\\CodexWorkspace\\StreetObject_DataPlan\\runs\\vistas_world_v4_s_original\\summary.json",
+      "metrics": {
+        "AP50": 0.11767891643527495,
+        "AP": 0.08077306563432558,
+        "seen_AP50": 0.1257113767919548,
+        "novel_AP50": 0.10482697986458722,
+        "median_end_to_end_seconds": 0.3689706000004662,
+        "inference_total_seconds": 24.71959129998868,
+        "peak_allocated_mib": 181.572265625,
+        "peak_reserved_mib": 692.0,
+        "parameter_count": 12759880
+      }
+    },
+    {
+      "label": "yoloworld_s_tuned5_141",
+      "note": "previous 141-image prompt tuning",
+      "summary_path": "E:\\CodexWorkspace\\StreetObject_DataPlan\\runs\\vistas_world_v4_s_tuned5\\summary.json",
+      "metrics": {
+        "AP50": 0.19103476995956634,
+        "AP": 0.12339834917532612,
+        "seen_AP50": 0.25071332999940865,
+        "novel_AP50": 0.09554907389581864,
+        "median_end_to_end_seconds": 0.38263130000268575,
+        "inference_total_seconds": 25.479857200043625,
+        "peak_allocated_mib": 181.572265625,
+        "peak_reserved_mib": 692.0,
+        "parameter_count": 12759880
+      }
+    },
+    {
+      "label": "yoloworld_s_tuned30_141",
+      "note": "previous best, 141-image prompt tuning",
+      "summary_path": "E:\\CodexWorkspace\\StreetObject_DataPlan\\runs\\vistas_world_v4_s_tuned30\\summary.json",
+      "metrics": {
+        "AP50": 0.19992691382723707,
+        "AP": 0.12647303985646416,
+        "seen_AP50": 0.26088208133351887,
+        "novel_AP50": 0.10239864581718616,
+        "median_end_to_end_seconds": 0.37806060000002617,
+        "inference_total_seconds": 25.31850570001552,
+        "peak_allocated_mib": 181.572265625,
+        "peak_reserved_mib": 692.0,
+        "parameter_count": 12759880
+      }
+    },
+    {
+      "label": "grounding_dino_t_zeroshot",
+      "note": "different architecture, no training",
+      "summary_path": "E:\\CodexWorkspace\\StreetObject_DataPlan\\runs_ds\\gdino_t_zeroshot_960_tile1024_ds\\summary.json",
+      "metrics": {
+        "AP50": 0.1315594123880518,
+        "AP": 0.08362696234163833,
+        "seen_AP50": 0.1618296702669624,
+        "novel_AP50": 0.08312699978179486,
+        "median_end_to_end_seconds": 7.921707900008187,
+        "inference_total_seconds": 589.5216010999429,
+        "peak_allocated_mib": 1510.0283203125,
+        "peak_reserved_mib": 1800.0,
+        "parameter_count": 172249090,
+        "predictions": 56000
+      }
+    },
+    {
+      "label": "seen_expand_prompt_c160_e10b_ds",
+      "note": "expanded seen supervision, prompt mode",
+      "summary_path": "E:\\CodexWorkspace\\StreetObject_DataPlan\\runs_ds\\seen_expand_prompt_c160_e10b_ds\\tuned_summary.json",
+      "metrics": {
+        "AP": 0.10649864833461577,
+        "AP50": 0.16961486778431503,
+        "seen_AP50": 0.22743179905575647,
+        "novel_AP50": 0.07710777775000867,
+        "seen_AP": 0.13499824147034967,
+        "novel_AP": 0.0608992993174415,
+        "median_end_to_end_seconds": 0.40400519999093376,
+        "predictions": 54440
+      }
+    },
+    {
+      "label": "seen_expand_prompt_c160_e10b_ds@5",
+      "note": "intermediate epoch of seen_expand_prompt_c160_e10b_ds",
+      "summary_path": "E:\\CodexWorkspace\\StreetObject_DataPlan\\runs_ds\\seen_expand_prompt_c160_e10b_ds\\epoch_5_summary.json",
+      "metrics": {
+        "AP": 0.10355081933169684,
+        "AP50": 0.16560760347667888,
+        "seen_AP50": 0.22407694756865199,
+        "novel_AP50": 0.07205665292952193,
+        "seen_AP": 0.13199773487874686,
+        "novel_AP": 0.05803575445641683,
+        "median_end_to_end_seconds": 0.40423159999772906,
+        "predictions": 53682
+      }
+    },
+    {
+      "label": "seen_expand_prompt_c160_e30_ds",
+      "note": "expanded seen supervision, prompt mode",
+      "summary_path": "E:\\CodexWorkspace\\StreetObject_DataPlan\\runs_ds\\seen_expand_prompt_c160_e30_ds\\tuned_summary.json",
+      "metrics": {
+        "AP": 0.10231437403216206,
+        "AP50": 0.16360162222597874,
+        "seen_AP50": 0.21808147603335198,
+        "novel_AP50": 0.07643385613418158,
+        "seen_AP": 0.12784506071280002,
+        "novel_AP": 0.06146527534314132,
+        "median_end_to_end_seconds": 0.33731909999914933,
+        "predictions": 52836
+      }
+    },
+    {
+      "label": "seen_expand_prompt_c160_e30_ds@5",
+      "note": "intermediate epoch of seen_expand_prompt_c160_e30_ds",
+      "summary_path": "E:\\CodexWorkspace\\StreetObject_DataPlan\\runs_ds\\seen_expand_prompt_c160_e30_ds\\epoch_5_summary.json",
+      "metrics": {
+        "AP": 0.10355081933169684,
+        "AP50": 0.16560760347667888,
+        "seen_AP50": 0.22407694756865199,
+        "novel_AP50": 0.07205665292952193,
+        "seen_AP": 0.13199773487874686,
+        "novel_AP": 0.05803575445641683,
+        "median_end_to_end_seconds": 0.38494299999729265,
+        "predictions": 53682
+      }
+    },
+    {
+      "label": "seen_expand_prompt_c160_e30_ds@10",
+      "note": "intermediate epoch of seen_expand_prompt_c160_e30_ds",
+      "summary_path": "E:\\CodexWorkspace\\StreetObject_DataPlan\\runs_ds\\seen_expand_prompt_c160_e30_ds\\epoch_10_summary.json",
+      "metrics": {
+        "AP": 0.10649864833461577,
+        "AP50": 0.16961486778431503,
+        "seen_AP50": 0.22743179905575647,
+        "novel_AP50": 0.07710777775000867,
+        "seen_AP": 0.13499824147034967,
+        "novel_AP": 0.0608992993174415,
+        "median_end_to_end_seconds": 0.3445075000054203,
+        "predictions": 54440
+      }
+    },
+    {
+      "label": "seen_expand_prompt_c160_e30_ds@15",
+      "note": "intermediate epoch of seen_expand_prompt_c160_e30_ds",
+      "summary_path": "E:\\CodexWorkspace\\StreetObject_DataPlan\\runs_ds\\seen_expand_prompt_c160_e30_ds\\epoch_15_summary.json",
+      "metrics": {
+        "AP": 0.10603247357919539,
+        "AP50": 0.16976712419757065,
+        "seen_AP50": 0.22844336033423915,
+        "novel_AP50": 0.07588514637890102,
+        "seen_AP": 0.13514754551446395,
+        "novel_AP": 0.059448358482765654,
+        "median_end_to_end_seconds": 0.3351012999919476,
+        "predictions": 51856
+      }
+    },
+    {
+      "label": "seen_expand_prompt_c160_e30_ds@20",
+      "note": "intermediate epoch of seen_expand_prompt_c160_e30_ds",
+      "summary_path": "E:\\CodexWorkspace\\StreetObject_DataPlan\\runs_ds\\seen_expand_prompt_c160_e30_ds\\epoch_20_summary.json",
+      "metrics": {
+        "AP": 0.10351173370269429,
+        "AP50": 0.1658265630096621,
+        "seen_AP50": 0.2216440086133784,
+        "novel_AP50": 0.07651865004371601,
+        "seen_AP": 0.1302258693827018,
+        "novel_AP": 0.06076911661468226,
+        "median_end_to_end_seconds": 0.33620150000206195,
+        "predictions": 53291
+      }
+    },
+    {
+      "label": "seen_expand_prompt_c160_e30_ds@25",
+      "note": "intermediate epoch of seen_expand_prompt_c160_e30_ds",
+      "summary_path": "E:\\CodexWorkspace\\StreetObject_DataPlan\\runs_ds\\seen_expand_prompt_c160_e30_ds\\epoch_25_summary.json",
+      "metrics": {
+        "AP": 0.1062011544774762,
+        "AP50": 0.1683616553281126,
+        "seen_AP50": 0.22473620650319642,
+        "novel_AP50": 0.07816237344797852,
+        "seen_AP": 0.1320702645670471,
+        "novel_AP": 0.06481057833416273,
+        "median_end_to_end_seconds": 0.33722809999017045,
+        "predictions": 52748
+      }
+    },
+    {
+      "label": "seen_expand_head_c160_e10_ds",
+      "note": "expanded seen supervision, head mode",
+      "summary_path": "E:\\CodexWorkspace\\StreetObject_DataPlan\\runs_ds\\seen_expand_head_c160_e10_ds\\tuned_summary.json",
+      "metrics": {
+        "AP": 0.0676685157187977,
+        "AP50": 0.1145779929254905,
+        "seen_AP50": 0.18120973020462552,
+        "novel_AP50": 0.007967213278874452,
+        "seen_AP": 0.10649019383686377,
+        "novel_AP": 0.005553830729891995,
+        "median_end_to_end_seconds": 0.4087383000005502,
+        "predictions": 31680
+      }
+    },
+    {
+      "label": "seen_expand_head_c160_e10_ds@5",
+      "note": "intermediate epoch of seen_expand_head_c160_e10_ds",
+      "summary_path": "E:\\CodexWorkspace\\StreetObject_DataPlan\\runs_ds\\seen_expand_head_c160_e10_ds\\epoch_5_summary.json",
+      "metrics": {
+        "AP": 0.07842604051269665,
+        "AP50": 0.13749093348543678,
+        "seen_AP50": 0.2144334250061619,
+        "novel_AP50": 0.01438294705227659,
+        "seen_AP": 0.12199625235509245,
+        "novel_AP": 0.008713701564863324,
+        "median_end_to_end_seconds": 0.408206699998118,
+        "predictions": 49607
+      }
+    }
+  ],
+  "per_class_AP50": {
+    "yoloworld_s_zeroshot": {
+      "object--street-light": 0.005905929206157664,
+      "object--junction-box": 0.0,
+      "object--trash-can": 0.4193470274703084,
+      "object--fire-hydrant": 0.3785373490765226,
+      "object--manhole": 0.11662526572309774,
+      "object--catch-basin": 0.0,
+      "object--support--utility-pole": 0.0459577608302178,
+      "object--sign--store": 0.03931768202933425,
+      "object--cctv-camera": 0.02472062750188042,
+      "object--bench": 0.4137666749413243,
+      "object--mailbox": 0.0038785442089359435,
+      "object--bike-rack": 0.04602337417674084,
+      "object--sign--information": 0.03574567849405461
+    },
+    "yoloworld_s_tuned5_141": {
+      "object--street-light": 0.27110030862561213,
+      "object--junction-box": 0.26694966415671423,
+      "object--trash-can": 0.45073128553214076,
+      "object--fire-hydrant": 0.4120440535979236,
+      "object--manhole": 0.24791747588765783,
+      "object--catch-basin": 0.038138042612708443,
+      "object--support--utility-pole": 0.16637392702707007,
+      "object--sign--store": 0.15245188255544212,
+      "object--cctv-camera": 0.006544312967882155,
+      "object--bench": 0.3687153236210502,
+      "object--mailbox": 0.0030836635288861818,
+      "object--bike-rack": 0.06055221948994322,
+      "object--sign--information": 0.038849849871331436
+    },
+    "yoloworld_s_tuned30_141": {
+      "object--street-light": 0.30440573034102475,
+      "object--junction-box": 0.28451850613987556,
+      "object--trash-can": 0.4252564479610197,
+      "object--fire-hydrant": 0.39759751328785814,
+      "object--manhole": 0.2095237308618776,
+      "object--catch-basin": 0.0913650060941284,
+      "object--support--utility-pole": 0.17615758487965988,
+      "object--sign--store": 0.19823213110270685,
+      "object--cctv-camera": 0.011881188118811883,
+      "object--bench": 0.39607999109082714,
+      "object--mailbox": 0.003877234102179209,
+      "object--bike-rack": 0.056117566780671,
+      "object--sign--information": 0.044037248993441545
+    },
+    "grounding_dino_t_zeroshot": {
+      "object--street-light": 0.006801610442292035,
+      "object--junction-box": 0.03944180119530265,
+      "object--trash-can": 0.3168461127528887,
+      "object--fire-hydrant": 0.5453905390539054,
+      "object--manhole": 0.13632240582215244,
+      "object--catch-basin": 0.06277971193374901,
+      "object--support--utility-pole": 0.08667044555197614,
+      "object--sign--store": 0.10038473538343289,
+      "object--cctv-camera": 0.14575673100802672,
+      "object--bench": 0.2402181149218717,
+      "object--mailbox": 0.0029294936227218533,
+      "object--bike-rack": 0.014196043260240003,
+      "object--sign--information": 0.012534616096114061
+    },
+    "seen_expand_prompt_c160_e10b_ds": {
+      "object--street-light": 0.29361260520895044,
+      "object--junction-box": 0.22037723318295735,
+      "object--trash-can": 0.39974769495941953,
+      "object--fire-hydrant": 0.4759417660388971,
+      "object--manhole": 0.11071636174064425,
+      "object--catch-basin": 0.028498801471792533,
+      "object--support--utility-pole": 0.15863793417793673,
+      "object--sign--store": 0.13192199566545398,
+      "object--cctv-camera": 0.019801980198019802,
+      "object--bench": 0.30725785053235194,
+      "object--mailbox": 0.002704071699441489,
+      "object--bike-rack": 0.013242170870711419,
+      "object--sign--information": 0.042532815449518646
+    },
+    "seen_expand_prompt_c160_e10b_ds@5": {
+      "object--street-light": 0.2877874078145799,
+      "object--junction-box": 0.20667658774237002,
+      "object--trash-can": 0.4311978703034751,
+      "object--fire-hydrant": 0.45136219504303365,
+      "object--manhole": 0.10453910916604091,
+      "object--catch-basin": 0.035104815400657345,
+      "object--support--utility-pole": 0.14708504917076112,
+      "object--sign--store": 0.12886254590829774,
+      "object--cctv-camera": 0.0,
+      "object--bench": 0.3058121188649538,
+      "object--mailbox": 0.0024317331199337922,
+      "object--bike-rack": 0.011417357941609724,
+      "object--sign--information": 0.040622054721112355
+    },
+    "seen_expand_prompt_c160_e30_ds": {
+      "object--street-light": 0.3198186849306594,
+      "object--junction-box": 0.12507862777742226,
+      "object--trash-can": 0.3884885617822921,
+      "object--fire-hydrant": 0.45937973670364224,
+      "object--manhole": 0.12147459444992806,
+      "object--catch-basin": 0.03065467228170588,
+      "object--support--utility-pole": 0.1621022387690286,
+      "object--sign--store": 0.1376546915721373,
+      "object--cctv-camera": 0.01618596642272923,
+      "object--bench": 0.3049907998562111,
+      "object--mailbox": 0.002956504369063062,
+      "object--bike-rack": 0.013706501053633479,
+      "object--sign--information": 0.04432950896927101
+    },
+    "seen_expand_prompt_c160_e30_ds@5": {
+      "object--street-light": 0.2877874078145799,
+      "object--junction-box": 0.20667658774237002,
+      "object--trash-can": 0.4311978703034751,
+      "object--fire-hydrant": 0.45136219504303365,
+      "object--manhole": 0.10453910916604091,
+      "object--catch-basin": 0.035104815400657345,
+      "object--support--utility-pole": 0.14708504917076112,
+      "object--sign--store": 0.12886254590829774,
+      "object--cctv-camera": 0.0,
+      "object--bench": 0.3058121188649538,
+      "object--mailbox": 0.0024317331199337922,
+      "object--bike-rack": 0.011417357941609724,
+      "object--sign--information": 0.040622054721112355
+    },
+    "seen_expand_prompt_c160_e30_ds@10": {
+      "object--street-light": 0.29361260520895044,
+      "object--junction-box": 0.22037723318295735,
+      "object--trash-can": 0.39974769495941953,
+      "object--fire-hydrant": 0.4759417660388971,
+      "object--manhole": 0.11071636174064425,
+      "object--catch-basin": 0.028498801471792533,
+      "object--support--utility-pole": 0.15863793417793673,
+      "object--sign--store": 0.13192199566545398,
+      "object--cctv-camera": 0.019801980198019802,
+      "object--bench": 0.30725785053235194,
+      "object--mailbox": 0.002704071699441489,
+      "object--bike-rack": 0.013242170870711419,
+      "object--sign--information": 0.042532815449518646
+    },
+    "seen_expand_prompt_c160_e30_ds@15": {
+      "object--street-light": 0.30860148028413503,
+      "object--junction-box": 0.19609520446654422,
+      "object--trash-can": 0.41727200090340916,
+      "object--fire-hydrant": 0.4785216337173965,
+      "object--manhole": 0.1021283534859876,
+      "object--catch-basin": 0.0318711760842815,
+      "object--support--utility-pole": 0.14961454853449788,
+      "object--sign--store": 0.14344248519766134,
+      "object--cctv-camera": 0.02190857383610701,
+      "object--bench": 0.29941503634505673,
+      "object--mailbox": 0.002570686763669653,
+      "object--bike-rack": 0.01347239788683859,
+      "object--sign--information": 0.04205903706283313
+    },
+    "seen_expand_prompt_c160_e30_ds@20": {
+      "object--street-light": 0.30344161513976403,
+      "object--junction-box": 0.19711998945916973,
+      "object--trash-can": 0.3845839710397641,
+      "object--fire-hydrant": 0.4428144687755403,
+      "object--manhole": 0.1208574090814334,
+      "object--catch-basin": 0.03406523883594225,
+      "object--support--utility-pole": 0.15787701805206014,
+      "object--sign--store": 0.13239235852335327,
+      "object--cctv-camera": 0.019801980198019802,
+      "object--bench": 0.3015524484931114,
+      "object--mailbox": 0.0028662122031556498,
+      "object--bike-rack": 0.012951503535770568,
+      "object--sign--information": 0.04542110578852262
+    },
+    "seen_expand_prompt_c160_e30_ds@25": {
+      "object--street-light": 0.3089937809877576,
+      "object--junction-box": 0.19737104386318802,
+      "object--trash-can": 0.3949726554570131,
+      "object--fire-hydrant": 0.451200170848398,
+      "object--manhole": 0.11830355019891363,
+      "object--catch-basin": 0.030061374046695056,
+      "object--support--utility-pole": 0.16893055957294384,
+      "object--sign--store": 0.12805651705066212,
+      "object--cctv-camera": 0.01718401388368385,
+      "object--bench": 0.3129061275845605,
+      "object--mailbox": 0.0030753075307530754,
+      "object--bike-rack": 0.012702059315822333,
+      "object--sign--information": 0.044944358925072876
+    },
+    "seen_expand_head_c160_e10_ds": {
+      "object--street-light": 0.32729657749435964,
+      "object--junction-box": 0.08626520261763172,
+      "object--trash-can": 0.32744764729061004,
+      "object--fire-hydrant": 0.4878534675953137,
+      "object--manhole": 0.07098931877911606,
+      "object--catch-basin": 0.005966217640805502,
+      "object--support--utility-pole": 0.0804185063109645,
+      "object--sign--store": 0.06344090390820303,
+      "object--cctv-camera": 0.0003228583727938011,
+      "object--bench": 0.03951320802157846,
+      "object--mailbox": 0.0,
+      "object--bike-rack": 0.0,
+      "object--sign--information": 0.0
+    },
+    "seen_expand_head_c160_e10_ds@5": {
+      "object--street-light": 0.3674547666757038,
+      "object--junction-box": 0.13888444639108108,
+      "object--trash-can": 0.20284333931514714,
+      "object--fire-hydrant": 0.5708595015766024,
+      "object--manhole": 0.1439542193852598,
+      "object--catch-basin": 0.040906569411702606,
+      "object--support--utility-pole": 0.14638797068848383,
+      "object--sign--store": 0.10417658660531444,
+      "object--cctv-camera": 0.0119354401193544,
+      "object--bench": 0.046263990357079426,
+      "object--mailbox": 0.0015808303519427571,
+      "object--bike-rack": 0.012134474433006364,
+      "object--sign--information": 0.0
+    }
+  }
+}
